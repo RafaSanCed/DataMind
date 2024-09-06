@@ -1,0 +1,161 @@
+{% extends "base.html" %}
+
+{% block title %}Corrección Ortográfica y Embeddings de Razas de Perros{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <!-- Sección de introducción y explicación del algoritmo -->
+    <h1 style="text-align: center; margin-top: 50px; font-size: 2.5rem;">Corrección Ortográfica con Algoritmo de Bigrams</h1>
+
+    <p class="intro-text">
+        Las correcciones ortográficas son una parte crucial en las herramientas de búsqueda y procesamiento de texto. Cuando un usuario comete un error tipográfico, el sistema necesita ser capaz de detectar la palabra mal escrita y sugerir la palabra correcta. Para lograr esto, uno de los métodos más efectivos es el uso de **bigrams**, donde una palabra se divide en secuencias de dos caracteres consecutivos.
+    </p>
+
+    <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Ejemplo de Algoritmo con Bigrams</h2>
+    
+    <!-- Contenedor centrado para el bloque de código -->
+    <div class="code-container">
+        <div class="code-block">
+            <pre>
+def generar_bigrams(palabra):
+    bigrams = [palabra[i:i+2] for i in range(len(palabra) - 1)]
+    return bigrams
+
+def generar_vector_bigramas(palabra, diccionario_bigramas):
+    bigrams = generar_bigrams(palabra)
+    vector = [0] * len(diccionario_bigramas)
+
+    for bigrama in bigrams:
+        if bigrama in diccionario_bigramas:
+            vector[diccionario_bigramas[bigrama]] = 1
+
+    return vector
+            </pre>
+        </div>
+    </div>
+
+    <p class="conclusion-text">
+        Este enfoque permite transformar cualquier palabra en un vector de bigrams, y luego comparar este vector con otros para determinar la similitud entre palabras. Si la palabra ingresada contiene un error tipográfico, el sistema sugiere la palabra más cercana basándose en la distancia entre sus embeddings.
+    </p>
+</div>
+
+
+    <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Ejemplo: Embeddings para Razas de Perros</h2>
+    <p style="text-align: justify; font-size: 1.2rem;">
+        Apliquemos este concepto a un caso práctico usando razas de perros. En este ejemplo, hemos generado embeddings para una lista de razas de perros, y cuando un usuario ingresa una raza, el sistema compara la raza ingresada con los embeddings de otras razas para encontrar la más cercana. Esto es útil para corregir errores ortográficos, como cuando alguien escribe "Beagel" en lugar de "Beagle".
+    </p>
+
+    <!-- Gráfico y Punto más cercano -->
+    <div style="display: flex; justify-content: space-between;">
+        <div id="graph" data-initial-data="{{ initial_data }}" style="flex: 70%;"></div>
+
+        <div id="closestResult">
+            <h2>Punto más cercano</h2>
+
+            <!-- Formulario -->
+            <form id="textForm">
+                <label for="text_input">Introduce una raza de perro:</label>
+                <input type="text" id="text_input" name="text_input" required>
+                <button type="submit">Buscar</button>
+            </form>
+
+            <p id="closestPointInfo">Introduce una raza de perro para ver la raza más cercana y la distancia.</p>
+        </div>
+    </div>
+
+    <!-- Tarjetas explicativas del uso de embeddings y bigrams con razas de perros -->
+    <div class="card-container">
+        <!-- Tarjeta 1: ¿Qué son los Embeddings? -->
+        <div class="card">
+            <h2>¿Qué son los Embeddings?</h2>
+            <p>
+                Los embeddings son representaciones vectoriales de objetos. En este caso, estamos usando razas de perros como ejemplos. Cada raza de perro se convierte en un vector que captura su "significado" y relación con otras razas de perros. Así, los embeddings nos permiten medir similitudes entre las razas.
+            </p>
+        </div>
+
+        <!-- Tarjeta 2: Uso de Bigrams -->
+        <div class="card">
+            <h2>Uso de Bigrams en Razas de Perros</h2>
+            <p>
+                Los bigrams descomponen los nombres de las razas de perros en pares de letras consecutivas. Por ejemplo, la palabra "Beagle" se convierte en los bigrams: "Be", "ea", "ag", "gl", "le". Esto ayuda a detectar y corregir errores tipográficos como "Beagel".
+            </p>
+        </div>
+
+        <!-- Tarjeta 3: Corrección Basada en Similitud -->
+        <div class="card">
+            <h2>Corrección Basada en Similitud</h2>
+            <p>
+                El algoritmo compara los embeddings de las razas de perros para encontrar la raza más cercana a la ingresada. Si la distancia entre dos embeddings es pequeña, es probable que la raza ingresada sea un error tipográfico de una raza existente.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let initialDataElement = document.getElementById('graph');
+        let initialData = JSON.parse(initialDataElement.getAttribute('data-initial-data'));
+
+        let layout = {
+            title: 'Visualización de Embeddings para Razas de Perros',
+            scene: {
+                xaxis: { title: 'PC1' },
+                yaxis: { title: 'PC2' },
+                zaxis: { title: 'PC3' }
+            }
+        };
+
+        Plotly.newPlot('graph', initialData, layout);
+
+        const form = document.getElementById('textForm');
+        const closestPointInfo = document.getElementById('closestPointInfo');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const searchedWord = formData.get('text_input');
+
+            fetch("{{ url_for('visualize') }}", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const newPoint = {
+                    x: [data.new_vector[0]],
+                    y: [data.new_vector[1]],
+                    z: [data.new_vector[2]],
+                    mode: 'markers+text',
+                    type: 'scatter3d',
+                    marker: { size: 5, color: 'red' },
+                    text: ['Nuevo: ' + searchedWord],
+                    textposition: 'top center',
+                    name: 'Nuevo punto'
+                };
+
+                const closestPoint = {
+                    x: [initialData[0].x[data.closest_index]],
+                    y: [initialData[0].y[data.closest_index]],
+                    z: [initialData[0].z[data.closest_index]],
+                    mode: 'markers+text',
+                    type: 'scatter3d',
+                    marker: { size: 5, color: 'green' },
+                    text: ['Cercano: ' + data.closest_title],
+                    textposition: 'top center',
+                    name: 'Punto más cercano'
+                };
+
+                Plotly.addTraces('graph', [newPoint, closestPoint]);
+                closestPointInfo.innerHTML = `La raza más cercana a <strong>${searchedWord}</strong> es <strong>${data.closest_title}</strong> a una distancia de <strong>${data.closest_distance.toFixed(2)}</strong>`;
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    });
+</script>
+<div class="logo-container">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="footer-logo">
+</div>
+{% endblock %}

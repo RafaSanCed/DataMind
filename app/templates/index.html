@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Inspiración - DataMind{% endblock %}
+
+{% block content %}
+<div class="parallax-container">
+    <div class="inspiration-container">
+        <div class="card">
+            <p>La inteligencia no es la capacidad de almacenar información, sino de comprenderla y transformarla en acción.</p>
+        </div>
+        <div class="card">
+            <p>El lenguaje de los datos es tan vasto como el universo, pero solo quien escuche con paciencia encontrará la melodía entre los números.</p>
+        </div>
+        <div class="card">
+            <p>Los algoritmos no son solo códigos, son los mapas que trazamos en busca de la verdad en un océano de datos.</p>
+        </div>
+        <div class="card">
+            <p>La búsqueda de la inteligencia artificial es, en esencia, la búsqueda de lo que significa ser humano.</p>
+        </div>
+        <div class="card">
+            <p>Cada dato es un hilo, y con ellos tejemos modelos que desentrañan el presente y predicen el futuro.</p>
+        </div>
+        <div class="card">
+            <p>En un mundo donde los números cuentan historias, el verdadero reto es aprender a escucharlas.</p>
+        </div>
+        <div class="card">
+            <p>El futuro no pertenece a los que predicen, sino a los que modelan el presente.</p>
+        </div>
+        <div class="card">
+            <p>Donde los datos se encuentran con la creatividad, ahí nace la verdadera inteligencia.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Logo al final -->
+<div class="logo-container">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="footer-logo">
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Predictions - My Website{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Visualización de Embeddings</h1>
+    <form action="{{ url_for('visualize') }}" method="POST">
+        <label for="text_input">Introduce un texto:</label>
+        <input type="text" id="text_input" name="text_input" required>
+        <button type="submit">Visualizar</button>
+    </form>
+    <div id="results"></div>
+</div>
+
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const formData = new FormData(form);
+        fetch(form.action, {
+            method: form.method,
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `El título más cercano es: ${data.closest_title} con una distancia de ${data.closest_distance}`;
+        })
+        .catch(error => console.error('Error:', error));
+    });
+</script>
+{% endblock %}
