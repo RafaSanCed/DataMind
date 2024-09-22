@@ -24,9 +24,10 @@ def init_routes(app):
             new_text = request.form['text_input']
             new_vector = generate_bigram_vector(new_text, bigram_to_index)
             new_reduced_vector = pca.transform([new_vector])[0]
-    
+        
             closest_title, closest_distance, closest_index = find_closest_point(new_reduced_vector, reduced_embeddings, titles)
-    
+        
+            # Solo devuelve los datos relevantes (limpios) al frontend para renderizar la nueva gráfica
             return jsonify({
                 "new_vector": new_reduced_vector.tolist(),
                 "closest_title": str(closest_title),
@@ -38,8 +39,3 @@ def init_routes(app):
             initial_data = get_initial_data()  # Función que convierte los embeddings en un formato procesable para Plotly
             initial_data_json = json.dumps(initial_data)  # Convertir initial_data a JSON string
             return render_template('visualize.html', initial_data=initial_data_json)
-        
-
-    @app.route('/cuadros')
-    def cuadros():
-        return render_template('cuadros.html')

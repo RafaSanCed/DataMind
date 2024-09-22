@@ -2,7 +2,6 @@ import pickle
 import pandas as pd
 import numpy as np
 from scipy.spatial import distance
-import plotly.express as px
 
 # Cargar los embeddings y el modelo PCA desde el archivo
 with open('app/embeddings.pkl', 'rb') as f:

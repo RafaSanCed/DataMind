@@ -22,7 +22,6 @@ header {
     color: white;
     padding: 10px 0;
     text-align: center;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
 
 }
 
@@ -47,11 +46,27 @@ header {
 .top-bar .social-links a:hover {
     color: #12972f; /* Verde más claro al hacer hover */
 }
-/* Menú principal */
+
+/* Centrar todo el contenido del header */
 .main-header {
-    background-color: white;
+    background-color: #f5fdf6cc; 
     border-bottom: 2px solid #134121; /* Línea verde separadora */
-    padding: 10px 0;
+    padding: 10px 10px;
+    width: 80%; /* Menú ocupa el 80% del ancho de la pantalla */
+    margin: 0 auto; /* Centra horizontalmente el contenedor principal */
+    display: flex;
+    justify-content: center; /* Centra el contenido del menú */
+    align-items: center; /* Centra verticalmente */
+}
+
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Para que el menú y la búsqueda se distribuyan correctamente */
+    align-items: center; /* Centra el contenido del menú verticalmente */
+    width: 100%; /* Asegura que el nav ocupe todo el ancho */
+    margin: 0 auto; /* Centra el nav en la pantalla */
+
 }
 
 .main-header nav {
@@ -71,38 +86,130 @@ header nav {
     margin-right: 20px;
 }
 
+
 .menu-left li a {
     font-size: 1.2rem;
-    color: white;
+    color: black;
     text-decoration: none;
-    padding: 10px 10px;
-
+    padding: 10px 15px;
 }
+
 
 .menu-left li a.active {
-    background-color: #3b5a58; /* Fondo más oscuro para el enlace activo */
-    border-radius: 8px; /* Bordes redondeados */
+    background-color: #134121; /* Fondo verde para el enlace activo */
+    color: white;
+    border-radius: 8px;
+    width: 100%;
 }
 
+.menu-left li a:hover {
+    color: white;
+    background-color: #134121; /* Fondo verde para el enlace activo */
+    border-radius: 3px;
+}
+
+/* Estilos para el contenedor de búsqueda */
+.search-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background-color: #f5fdf6;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    z-index: 100;
+    border-bottom: 1px solid #134121;
+    border-radius: 8px;
+}
+
+/* Estilos del botón de cerrar */
+.search-container .close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #134121;
+    background-color: transparent;
+}
+.search-btn {
+    background-color: transparent;
+    color: #134121;
+    padding: 8px;
+    border: none; /* Quita el borde */
+    outline: none; /* Quita el borde al hacer clic */
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Para que el contenedor de búsqueda aparezca */
+.search-container.active {
+    display: flex;
+}
+
+
+/* Overlay semitransparente */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color negro semitransparente */
+    display: none; /* Se oculta inicialmente */
+    z-index: 90; /* Debe estar por debajo del contenedor de búsqueda */
+}
+
+/* Mostrar el overlay cuando se active el buscador */
+.search-overlay.active {
+    display: block; /* Se muestra el overlay */
+}
+
+
+.search-container input {
+    width: 60%;
+    padding: 10px;
+    border: none; /* Elimina el borde */
+    font-size: 1.2rem;
+    background-color: transparent; /* Fondo transparente */
+    color: #134121; /* Color del texto */
+    outline: none; /* Elimina el contorno */
+    
+}
+
+
+.search-input{
+    background-color:f5fdf6;
+}
 .search-right {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
+    margin-left: auto; /* Empuja la barra de búsqueda hacia la derecha */
 }
 
+/* Barra de búsqueda */
 .search-right input {
     padding: 8px;
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.438);
+    background-color: #f5fdf6cc; 
+
     margin-right: 10px;
 }
-
-.search-btn {
-    background-color: #134121;
-    color: rgba(255, 255, 255, 0.438);
-    padding: 20px;
-    border: none;
+/* Estilos del botón de cerrar */
+.search-close-btn {
+    position: absolute;
+    top: 10px; /* Posiciona la "X" hacia abajo 10px desde la parte superior */
+    right: 20px; /* Posiciona la "X" a 20px del borde derecho */
     cursor: pointer;
-    border-radius: 4px;
+    font-size: 1.5rem;
+    color: #134121;
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Elimina el borde */
+    outline: none; /* Elimina el contorno al hacer clic */
 }
 
 .menu-left {
@@ -110,7 +217,10 @@ header nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    align-items: center; 
+    align-items: center;
+    justify-content: center; /* Alinear todo el contenido del menú al centro */
+    flex-grow: 1; /* Hace que el menú ocupe el espacio disponible */
+
 }
 
 header nav ul {
@@ -141,48 +251,81 @@ header nav ul li a {
 
 }
 
+
+
+/* Estilos del dropdown */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: #f5fdf6;
     width: 100%;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 10;
-    right: 0; /* Alinea el menú desplegable con el lado derecho */
-    border-radius: 8px; /* Añade bordes redondeados */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    right: 0;
+    border-radius: 3px;
+    top: 100%; /* Despliega hacia abajo respecto al botón */
+    min-width: 100%;
 }
 
+
 .dropdown-content a {
-    color: rgb(200, 255, 200);
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    background-color: #134121;
-    text-align: center;
-    border-bottom: 1px solid #ddd; 
 }
+
 .dropdown-content a:last-child {
     border-bottom: none; /* Elimina la línea del último elemento */
 }
 .dropdown-content a:hover {
-    background-color: #3b5a58;
+    background-color: #134121;
+    color: white;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
+/* Submenús de segundo nivel */
+.sub-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f5fdf6;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    top: 0; /* Misma altura que el menú de primer nivel */
+    left: 100%; /* Despliega hacia la derecha */
+
+}
+
+.sub-dropdown-content a {
+    padding: 10px;
+    white-space: nowrap;
+}
+
+/* Mostrar submenús al hacer hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content .dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
 .dropbtn {
     padding: 12px 20px;
-    background-color: #134121;
-    color: white;
+    background-color: transparent;
+    color: black;
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
 }
 
 .dropbtn:hover {
-    background-color: #3b5a58;
+    background-color: #134121; /* Fondo verde para el enlace activo */
+    color: white;
+    border-radius: 3px;
+
 }
 main {
     flex-grow: 1; 
@@ -244,6 +387,16 @@ footer a:hover {
     margin: auto;
 }
 
+/* Estilo principal para la sección de gráfica y formulario */
+.graph-and-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px; /* Espacio entre el gráfico y el formulario */
+    width: 100%;
+}
+
+
 /* Estilo para el contenedor de "Punto más cercano" */
 #closestResult {
     padding: 20px;
@@ -251,6 +404,9 @@ footer a:hover {
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
+    margin-right: 20px;
+    height: 55vh;
+
 }
 
 #closestResult h2 {
@@ -334,21 +490,10 @@ footer a:hover {
     color: #4a706b;
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
-    .card {
-        flex-basis: 100%;
-    }
-
-    #graph {
-        height: 50vh;
-        width: 60vh;
-    }
-}
 
 .logo-container {
     text-align: center;
-    padding: 0px 0 40px 0;
+    padding: 20px 0 20px 0;
     background-color: #f5fdf6cc;
 
 }
@@ -417,57 +562,22 @@ footer a:hover {
     text-align: center;
 }
 
-/* Responsive adjustments */
+
+/* Hacer que los elementos se apilen uno sobre otro en pantallas pequeñas */
 @media (max-width: 768px) {
-    .inspiration-container .card {
-        flex-basis: 100%;
-    }
-}
-
-.two-column-layout {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-}
-
-.text-column {
-    flex: 1;
-    padding: 20px;
-    text-align: left;
-}
-
-.text-column .content-box {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 12px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    font-size: 1.5rem;
-    color: #333;
-}
-
-.image-column {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-column img {
-    max-width: 80%;
-    border-radius: 12px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-    .two-column-layout {
+    .graph-and-form {
         flex-direction: column;
+        align-items: center; /* Centrar los elementos al apilarlos */
     }
 
-    .image-column {
+    #graph {
+        width: 100%;
+    }
+
+    #closestResult {
+        width: 100%;
         margin-top: 20px;
+        height: 30vh;
+
     }
 }

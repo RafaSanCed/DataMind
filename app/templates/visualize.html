@@ -6,10 +6,17 @@
 
 <div class="container">
     <!-- Sección de introducción y explicación del algoritmo -->
-    <h1 style="text-align: center; margin-top: 50px; font-size: 2.5rem;">Corrección Ortográfica con Algoritmo de Bigrams</h1>
+    <h1 style="text-align: center; margin-top: 50px; font-size: 2.5rem;">Corrección Ortográfica con Algoritmo de Bigrams y Embeddings</h1>
 
     <p class="intro-text">
-        Las correcciones ortográficas son una parte crucial en las herramientas de búsqueda y procesamiento de texto. Cuando un usuario comete un error tipográfico, el sistema necesita ser capaz de detectar la palabra mal escrita y sugerir la palabra correcta. Para lograr esto, uno de los métodos más efectivos es el uso de **bigrams**, donde una palabra se divide en secuencias de dos caracteres consecutivos.
+        Las correcciones ortográficas juegan un papel fundamental en las herramientas de búsqueda y procesamiento de texto. Cuando un usuario comete un error tipográfico, el sistema debe ser capaz de identificar la palabra incorrecta y sugerir la palabra correcta. Para lograrlo, uno de los métodos más eficientes es el uso de <strong>bigrams</strong>, donde una palabra se divide en secuencias de dos caracteres consecutivos.
+    </p>
+
+    <!-- Introducción a los Embeddings -->
+    <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">¿Qué son los Embeddings?</h2>
+
+    <p class="intro-text">
+        Los <strong>embeddings</strong> son una técnica utilizada en procesamiento del lenguaje natural y aprendizaje automático que transforma elementos (como palabras) en vectores numéricos que capturan sus relaciones y similitudes en un espacio vectorial. En el contexto de este proyecto, hemos generado embeddings para diferentes razas de perros. Cuando un usuario escribe una raza, se convierte en un vector de embedding y se compara con los embeddings de otras razas para encontrar la más cercana, permitiendo la corrección automática de errores tipográficos.
     </p>
 
     <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Ejemplo de Algoritmo con Bigrams</h2>
@@ -24,10 +31,10 @@ def generar_bigrams(palabra):
 
 def generar_vector_bigramas(palabra, diccionario_bigramas):
     bigrams = generar_bigrams(palabra)
-    vector = [0] * len(diccionario_bigramas)
+    vector = [0] * len(diccionario_bigramas]
 
     for bigrama in bigrams:
-        if bigrama in diccionario_bigramas:
+        if bigrama en diccionario_bigramas:
             vector[diccionario_bigramas[bigrama]] = 1
 
     return vector
@@ -36,61 +43,62 @@ def generar_vector_bigramas(palabra, diccionario_bigramas):
     </div>
 
     <p class="conclusion-text">
-        Este enfoque permite transformar cualquier palabra en un vector de bigrams, y luego comparar este vector con otros para determinar la similitud entre palabras. Si la palabra ingresada contiene un error tipográfico, el sistema sugiere la palabra más cercana basándose en la distancia entre sus embeddings.
+        Este algoritmo convierte una palabra en un vector de bigrams. Luego, este vector se compara con otros vectores de palabras correctas para encontrar la más cercana y sugerir una corrección si es necesario.
     </p>
 </div>
 
+<h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Caso de Uso: Embeddings para Razas de Perros</h2>
+<p style="text-align: justify; font-size: 1.2rem;">
+    Apliquemos este concepto en un caso práctico utilizando razas de perros. Hemos generado embeddings para una lista de razas de perros, y cuando un usuario introduce una raza, el sistema compara la raza ingresada con los embeddings de otras razas para encontrar la más cercana. Esto es útil para corregir errores tipográficos, como cuando alguien escribe "Beagel" en lugar de "Beagle".
+</p>
 
-    <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Ejemplo: Embeddings para Razas de Perros</h2>
-    <p style="text-align: justify; font-size: 1.2rem;">
-        Apliquemos este concepto a un caso práctico usando razas de perros. En este ejemplo, hemos generado embeddings para una lista de razas de perros, y cuando un usuario ingresa una raza, el sistema compara la raza ingresada con los embeddings de otras razas para encontrar la más cercana. Esto es útil para corregir errores ortográficos, como cuando alguien escribe "Beagel" en lugar de "Beagle".
-    </p>
+<!-- Gráfico y Punto más cercano -->
+<div class="graph-and-form">
+    <div id="graph" data-initial-data="{{ initial_data }}"></div>
 
-    <!-- Gráfico y Punto más cercano -->
-    <div style="display: flex; justify-content: space-between;">
-        <div id="graph" data-initial-data="{{ initial_data }}" style="flex: 70%;"></div>
+    <div id="closestResult">
+        <h2>Punto más cercano</h2>
 
-        <div id="closestResult">
-            <h2>Punto más cercano</h2>
+        <!-- Formulario -->
+        <form id="textForm">
+            <label for="text_input">Introduce una raza de perro:</label>
+            <input type="text" id="text_input" name="text_input" required>
+            <button type="submit">Buscar</button>
+        </form>
 
-            <!-- Formulario -->
-            <form id="textForm">
-                <label for="text_input">Introduce una raza de perro:</label>
-                <input type="text" id="text_input" name="text_input" required>
-                <button type="submit">Buscar</button>
-            </form>
+        <p id="closestPointInfo">Introduce una raza de perro para ver la raza más cercana y la distancia.</p>
+    </div>
+</div>
 
-            <p id="closestPointInfo">Introduce una raza de perro para ver la raza más cercana y la distancia.</p>
-        </div>
+<!-- Tarjetas explicativas del uso de embeddings y bigrams con razas de perros -->
+<div class="card-container">
+    <!-- Tarjeta 1: ¿Qué son los Embeddings? -->
+    <div class="card">
+        <h2>¿Qué son los Embeddings?</h2>
+        <p>
+            Los embeddings son representaciones vectoriales de objetos. En este caso, estamos usando razas de perros como ejemplos. Cada raza de perro se convierte en un vector que captura su "significado" y su relación con otras razas de perros. Así, los embeddings nos permiten medir similitudes entre las razas.
+        </p>
     </div>
 
-    <!-- Tarjetas explicativas del uso de embeddings y bigrams con razas de perros -->
-    <div class="card-container">
-        <!-- Tarjeta 1: ¿Qué son los Embeddings? -->
-        <div class="card">
-            <h2>¿Qué son los Embeddings?</h2>
-            <p>
-                Los embeddings son representaciones vectoriales de objetos. En este caso, estamos usando razas de perros como ejemplos. Cada raza de perro se convierte en un vector que captura su "significado" y relación con otras razas de perros. Así, los embeddings nos permiten medir similitudes entre las razas.
-            </p>
-        </div>
-
-        <!-- Tarjeta 2: Uso de Bigrams -->
-        <div class="card">
-            <h2>Uso de Bigrams en Razas de Perros</h2>
-            <p>
-                Los bigrams descomponen los nombres de las razas de perros en pares de letras consecutivas. Por ejemplo, la palabra "Beagle" se convierte en los bigrams: "Be", "ea", "ag", "gl", "le". Esto ayuda a detectar y corregir errores tipográficos como "Beagel".
-            </p>
-        </div>
-
-        <!-- Tarjeta 3: Corrección Basada en Similitud -->
-        <div class="card">
-            <h2>Corrección Basada en Similitud</h2>
-            <p>
-                El algoritmo compara los embeddings de las razas de perros para encontrar la raza más cercana a la ingresada. Si la distancia entre dos embeddings es pequeña, es probable que la raza ingresada sea un error tipográfico de una raza existente.
-            </p>
-        </div>
+    <!-- Tarjeta 2: Uso de Bigrams -->
+    <div class="card">
+        <h2>Uso de Bigrams en Razas de Perros</h2>
+        <p>
+            Los bigrams descomponen los nombres de las razas de perros en pares de letras consecutivas. Por ejemplo, la palabra "Beagle" se convierte en los bigrams: "Be", "ea", "ag", "gl", "le". Esto ayuda a detectar y corregir errores tipográficos como "Beagel".
+        </p>
     </div>
 
+    <!-- Tarjeta 3: Corrección Basada en Similitud -->
+    <div class="card">
+        <h2>Corrección Basada en Similitud</h2>
+        <p>
+            El algoritmo compara los embeddings de las razas de perros para encontrar la más cercana a la ingresada. Si la distancia entre dos embeddings es pequeña, es probable que la raza ingresada sea un error tipográfico de una raza existente.
+        </p>
+    </div>
+</div>
+
+<div class="logo-container" style="text-align: center; margin-top: 50px;">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="footer-logo">
 </div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -155,7 +163,6 @@ def generar_vector_bigramas(palabra, diccionario_bigramas):
         });
     });
 </script>
-<div class="logo-container">
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="footer-logo">
-</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 {% endblock %}
