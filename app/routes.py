@@ -38,3 +38,8 @@ def init_routes(app):
             initial_data = get_initial_data()  # Función que convierte los embeddings en un formato procesable para Plotly
             initial_data_json = json.dumps(initial_data)  # Convertir initial_data a JSON string
             return render_template('visualize.html', initial_data=initial_data_json)
+        
+
+    @app.route('/cuadros')
+    def cuadros():
+        return render_template('cuadros.html')
