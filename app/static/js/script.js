@@ -16,7 +16,6 @@ closeIcon.addEventListener('click', function() {
     searchOverlay.classList.remove('active'); // Oculta el overlay
 });
 
-
 document.addEventListener('DOMContentLoaded', function () {
     let initialDataElement = document.getElementById('graph');
     let initialData = JSON.parse(initialDataElement.getAttribute('data-initial-data'));
@@ -79,5 +78,27 @@ document.addEventListener('DOMContentLoaded', function () {
             closestPointInfo.innerHTML = `La raza más cercana a <strong>${searchedWord}</strong> es <strong>${data.closest_title}</strong> a una distancia de <strong>${data.closest_distance.toFixed(2)}</strong>`;
         })
         .catch(error => console.error('Error:', error));
+    });
+
+    // Añadir funcionalidad de menú seleccionable
+    const menuItems = document.querySelectorAll('.dropdown-link, .sub-dropdown-link');
+
+    menuItems.forEach(item => {
+        item.addEventListener('click', function() {
+            // Elimina la clase active de todos los elementos
+            menuItems.forEach(link => link.classList.remove('active'));
+
+            // Añade la clase active a la subsección seleccionada y su sección principal
+            item.classList.add('active');
+
+            // Si es una subsección, también añade la clase active a su padre (sección principal)
+            const parentDropdown = item.closest('.dropdown');
+            if (parentDropdown) {
+                const parentLink = parentDropdown.querySelector('.dropdown-link');
+                if (parentLink) {
+                    parentLink.classList.add('active');
+                }
+            }
+        });
     });
 });

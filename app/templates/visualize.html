@@ -47,10 +47,12 @@ def generar_vector_bigramas(palabra, diccionario_bigramas):
     </p>
 </div>
 
+<div class="container">
 <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Caso de Uso: Embeddings para Razas de Perros</h2>
 <p style="text-align: justify; font-size: 1.2rem;">
     Apliquemos este concepto en un caso práctico utilizando razas de perros. Hemos generado embeddings para una lista de razas de perros, y cuando un usuario introduce una raza, el sistema compara la raza ingresada con los embeddings de otras razas para encontrar la más cercana. Esto es útil para corregir errores tipográficos, como cuando alguien escribe "Beagel" en lugar de "Beagle".
 </p>
+
 
 <!-- Gráfico y Punto más cercano -->
 <div class="graph-and-form">
@@ -68,6 +70,7 @@ def generar_vector_bigramas(palabra, diccionario_bigramas):
 
         <p id="closestPointInfo">Introduce una raza de perro para ver la raza más cercana y la distancia.</p>
     </div>
+</div>
 </div>
 
 <!-- Tarjetas explicativas del uso de embeddings y bigrams con razas de perros -->
@@ -108,7 +111,7 @@ def generar_vector_bigramas(palabra, diccionario_bigramas):
         let initialData = JSON.parse(initialDataElement.getAttribute('data-initial-data'));
 
         let layout = {
-            title: 'Visualización de Embeddings para Razas de Perros',
+            title: 'Visualización de Embeddings',
             scene: {
                 xaxis: { title: 'PC1' },
                 yaxis: { title: 'PC2' },

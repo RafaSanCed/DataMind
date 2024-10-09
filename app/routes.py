@@ -16,6 +16,9 @@ def init_routes(app):
     def blog():
         return render_template('blog.html')
 
+    @app.route('/historIA')
+    def historIA():
+        return render_template('historIA.html')
 
     @app.route('/visualize', methods=['GET', 'POST'])
     def visualize():
@@ -39,3 +42,7 @@ def init_routes(app):
             initial_data = get_initial_data()  # Función que convierte los embeddings en un formato procesable para Plotly
             initial_data_json = json.dumps(initial_data)  # Convertir initial_data a JSON string
             return render_template('visualize.html', initial_data=initial_data_json)
+        
+    @app.route('/GeoGreenView')
+    def geogreen():
+        return render_template('geogreen.html')

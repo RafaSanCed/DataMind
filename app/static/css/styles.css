@@ -25,6 +25,22 @@ header {
 
 }
 
+/* Efecto Parallax */
+/* Efecto Parallax */
+.parallaxhistoria {
+    background-image: url('/static/images/evolucion.webp');
+    background-attachment: fixed; /* Mantiene el efecto parallax */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir el área */
+    height: 700px; /* Ajusta la altura según tus preferencias */
+    width: 92%; /* Ajusta el ancho del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: block; /* Asegura que el margen auto funcione */
+}
+
+
+
 /* Estilos para la barra superior */
 .top-bar {
     background-color: #134121; /* Verde oscuro */
@@ -57,6 +73,7 @@ header {
     display: flex;
     justify-content: center; /* Centra el contenido del menú */
     align-items: center; /* Centra verticalmente */
+    flex-wrap: wrap; /* Permitir que los elementos se acomoden en varias filas si es necesario */
 }
 
 
@@ -166,6 +183,36 @@ header nav {
 /* Mostrar el overlay cuando se active el buscador */
 .search-overlay.active {
     display: block; /* Se muestra el overlay */
+}
+/* Estilos generales para el menú */
+.dropdown-content,
+.sub-dropdown-content {
+    background-color: #f5fdf6;
+}
+
+.dropdown:hover .dropbtn,
+.dropdown-content .dropdown:hover > a,
+.sub-dropdown-content a:hover {
+    background-color: #134121; /* Verde oscuro */
+    color: white;
+}
+
+/* Solo los elementos seleccionados se resaltan */
+.dropdown-link.active,
+.sub-dropdown-link.active {
+    background-color: #134121;
+    color: white;
+}
+
+/* Cuando el mouse está sobre una subsección, resalta también el menú principal y su subsección */
+.sub-dropdown-content a:hover {
+    background-color: #134121;
+    color: white;
+}
+
+.dropdown:hover .sub-dropdown-content a.active {
+    background-color: #134121;
+    color: white;
 }
 
 
@@ -331,12 +378,13 @@ main {
     flex-grow: 1; 
 }
 .container {
-    margin-top: 20px;
+    margin: 20px auto; /* Centra el contenedor horizontalmente y da margen arriba/abajo */
     padding: 20px;
-    margin: 20px;
     border-radius: 12px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra */
+    width: 90%; /* Ajusta el ancho del contenedor */
 }
+
 
 /* Footer Styling */
 footer {
@@ -420,6 +468,8 @@ footer a:hover {
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    margin: 20px auto; /* Centra el contenedor horizontalmente y da margen arriba/abajo */
+
 }
 
 #textForm label {
@@ -466,6 +516,8 @@ footer a:hover {
     flex-wrap: wrap;
     justify-content: space-around;
     margin-top: 40px;
+    margin: 20px auto; /* Centra el contenedor horizontalmente y da margen arriba/abajo */
+    width: 92%;
 }
 
 .card {
@@ -533,6 +585,9 @@ footer a:hover {
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 40px;
+    width: 90%;
+    margin: 20px auto; /* Centra el contenedor horizontalmente y da margen arriba/abajo */
+
 }
 
 .inspiration-container .card {
@@ -571,7 +626,8 @@ footer a:hover {
     }
 
     #graph {
-        width: 100%;
+        width: 95%;
+        height: 50%;
     }
 
     #closestResult {
@@ -580,4 +636,5 @@ footer a:hover {
         height: 30vh;
 
     }
+
 }

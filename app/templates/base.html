@@ -36,6 +36,13 @@
                     <button class="dropbtn">Fundamentos de IA</button>
                     <div class="dropdown-content">
                         <div class="dropdown">
+                            <a href="#">Introducción a la Inteligencia Artificial</a>
+                            <div class="sub-dropdown-content">
+                                <a href="{{ url_for('historIA') }}">Breve Historia de la IA</a>
+                                <a href="#">Clasificación de Texto</a>
+                            </div>
+                        </div>
+                        <div class="dropdown">
                             <a href="#">Procesamiento de Lenguaje Natural</a>
                             <div class="sub-dropdown-content">
                                 <a href="#">Embeddings</a>
@@ -55,7 +62,7 @@
                     <button class="dropbtn">Machine Learning Projects</button>
                     <div class="dropdown-content">
                         <a href="{{ url_for('visualize') }}">Embeddings</a>
-                        <a href="#">Otro Proyecto</a>
+                        <a href="{{ url_for('geogreen') }}">GeoGreenView</a>
                     </div>
                 </li>
             </ul>
