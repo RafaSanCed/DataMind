@@ -4,52 +4,74 @@
 
 {% block content %}
 
-<div class="container">
-    <!-- Sección de introducción y explicación del algoritmo -->
-    <h1 style="text-align: center; margin-top: 50px; font-size: 2.5rem;">Corrección Ortográfica con Algoritmo de Bigrams y Embeddings</h1>
-
-    <p class="intro-text">
-        Las correcciones ortográficas juegan un papel fundamental en las herramientas de búsqueda y procesamiento de texto. Cuando un usuario comete un error tipográfico, el sistema debe ser capaz de identificar la palabra incorrecta y sugerir la palabra correcta. Para lograrlo, uno de los métodos más eficientes es el uso de <strong>bigrams</strong>, donde una palabra se divide en secuencias de dos caracteres consecutivos.
-    </p>
-
-    <!-- Introducción a los Embeddings -->
-    <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">¿Qué son los Embeddings?</h2>
-
-    <p class="intro-text">
-        Los <strong>embeddings</strong> son una técnica utilizada en procesamiento del lenguaje natural y aprendizaje automático que transforma elementos (como palabras) en vectores numéricos que capturan sus relaciones y similitudes en un espacio vectorial. En el contexto de este proyecto, hemos generado embeddings para diferentes razas de perros. Cuando un usuario escribe una raza, se convierte en un vector de embedding y se compara con los embeddings de otras razas para encontrar la más cercana, permitiendo la corrección automática de errores tipográficos.
-    </p>
-
-    <h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Ejemplo de Algoritmo con Bigrams</h2>
-    
-    <!-- Contenedor centrado para el bloque de código -->
-    <div class="code-container">
-        <div class="code-block">
-            <pre>
-def generar_bigrams(palabra):
-    bigrams = [palabra[i:i+2] for i in range(len(palabra) - 1)]
-    return bigrams
-
-def generar_vector_bigramas(palabra, diccionario_bigramas):
-    bigrams = generar_bigrams(palabra)
-    vector = [0] * len(diccionario_bigramas]
-
-    for bigrama in bigrams:
-        if bigrama en diccionario_bigramas:
-            vector[diccionario_bigramas[bigrama]] = 1
-
-    return vector
-            </pre>
-        </div>
+<div class="motivation-container">
+    <!-- Parte superior izquierda: Motivación -->
+    <div class="motivation-left">
+        <h2>Motivación</h2>
+        <p>Este proyecto ocupa un lugar muy especial para mí, ya que fue el primer gran desafío que desarrollé completamente desde cero y llevé hasta su implementación en producción. Mientras trabajaba en una empresa de suplementos alimenticios, se me presentó un problema crucial: el buscador de productos de la empresa no estaba funcionando como debería. La empresa manejaba una amplia variedad de productos con nombres complejos y poco convencionales, lo que hacía que los usuarios a menudo no encontraran lo que buscaban debido a simples errores tipográficos o variaciones mínimas en la escritura de los nombres.
+            Ante esta situación, se me encomendó la tarea de encontrar una solución que permitiera corregir estos errores y mejorar la precisión del buscador. Mi primera idea fue recurrir a alguna librería ya existente de corrección ortográfica. Sin embargo, muy pronto descubrí que estas herramientas estaban diseñadas para palabras comunes y corrientes, no para los nombres complejos y poco convencionales de los productos de la empresa. Este obstáculo me impulsó a idear un enfoque completamente nuevo y personalizado.
+            Así fue como nació la idea de desarrollar un corrector ortográfico basado en embeddings, adaptado a las necesidades específicas de la empresa. Utilicé la base de datos de productos como referencia para generar un sistema capaz de corregir cualquier variación tipográfica de los nombres.</p>
     </div>
 
-    <p class="conclusion-text">
-        Este algoritmo convierte una palabra en un vector de bigrams. Luego, este vector se compara con otros vectores de palabras correctas para encontrar la más cercana y sugerir una corrección si es necesario.
-    </p>
+    <!-- Parte superior derecha: Imagen relacionada con el problema -->
+    <div class="motivation-right-top">
+        <img src="/static/images/suplementos.webp" alt="Imagen relacionada con la motivación">
+    </div>
+
+    <!-- Parte inferior izquierda: Línea de pensamiento y proceso creativo -->
+    <div class="thoughts-creative-left">
+        <h3>Línea de Pensamiento</h3>
+        <p>El reto inicial fue entender cómo funciona un corrector ortográfico, pero pronto me di cuenta de que, en nuestro caso específico, no era relevante considerar el contexto de las oraciones. Lo esencial aquí era medir qué tan similares eran dos palabras. Me pregunté: ¿cómo encontramos una métrica adecuada para este tipo de comparación? 
+            Tomemos como ejemplo la palabra botella. Si alguien la escribe como boteya, el error ortográfico recae solo en ciertas letras. El resto de la palabra sigue siendo correcto. Así, podríamos representarla como bote_a, donde el guion bajo indica que esa letra podría ser sustituida por varias opciones como ll o y. Me di cuenta de que muchas faltas ortográficas responden a patrones comunes: cambiar ll por y, c por s, u omitir letras. Entonces, parecía lógico diseñar un corrector que identificara estos patrones y los aplicara para sugerir correcciones.
+            Sin embargo, había nombres de productos muy complejos en la base de datos, como ashwagandha, lo que hacía esta estrategia ineficaz. Fue entonces cuando pensé: ¿qué tal si dividimos las palabras? Al dividir boteya en fragmentos como bo, ot, te, _a, y hacer lo mismo con botella—bo, ot, te, ll, a—podemos notar que ambas comparten varias secuencias. Este método de fragmentación en pares de letras, conocido como bigrama, podría ser la clave. Con esta técnica, era posible comparar palabras y encontrar las que tuvieran mayor cantidad de bigramas en común, para luego devolver las mejores coincidencias.
+            Así fue como implementé el sistema, pero no me detuve ahí. Para optimizar el proceso, agregué una serie de pasos. Primero, el sistema busca coincidencias exactas. Si no las encuentra, busca palabras que empiecen igual, y solo en último lugar ejecuta la comparación por bigramas para acelerar la consulta y mantener la eficiencia.</p>
+            <p>En medio de este desarrollo, recordé algo que siempre me había fascinado: los embeddings de word2vec, donde las palabras se posicionan en un espacio vectorial dependiendo de su contexto. Palabras como computadora estarían más cerca de teclado que de cielo. Este modelo me inspiró, pero aún necesitaba una métrica adecuada para aplicar en nuestro contexto. La había encontrado en los bigramas.
+            Con esta métrica, pude trasladar los nombres de productos a un espacio tridimensional, donde la cercanía entre palabras reflejaba su similitud. Aunque no podía utilizar los datos reales de la empresa, creé una demostración con razas de perros. Aunque menos complejo que los nombres de suplementos alimenticios, esta demostración captura la esencia de mi enfoque, mostrando el poder de los embeddings y las correcciones ortográficas personalizadas.</p>
+    </div>
+
+    <!-- Parte inferior derecha: Imagen relacionada con el proceso creativo -->
+    <div class="motivation-right-bottom">
+        <img src="/static/images/creativo.webp" alt="Imagen relacionada con el proceso creativo">
+    </div>
 </div>
 
 <div class="container">
-<h2 style="font-size: 2rem; text-align: center; margin-top: 40px;">Caso de Uso: Embeddings para Razas de Perros</h2>
-<p style="text-align: justify; font-size: 1.2rem;">
+    <!-- Sección de introducción y explicación del algoritmo -->
+    <h2>Corrección Ortográfica con Algoritmo de Bigrams y Embeddings</h2>
+    <p>
+        Utilizamos un sistema basado en <strong>bigrams</strong> y <strong>embeddings</strong> que permite corregir errores ortográficos comunes y manejar los nombres complejos de los productos. Este enfoque mejora la precisión del buscador, permitiendo sugerencias basadas en similitudes entre palabras.
+    </p>
+
+
+    <p style="text-align: center;">¿Interesado en más detalles técnicos? Aquí está el algoritmo que hace esto posible:</p>
+
+
+    <h2>Ejemplo de Algoritmo con Bigrams</h2>
+    <!-- Contenedor centrado para el bloque de código -->
+        <div class="code-block">
+            <pre>
+        def generar_bigrams(palabra):
+            bigrams = [palabra[i:i+2] for i in range(len(palabra) - 1)]
+            return bigrams
+
+        def generar_vector_bigramas(palabra, diccionario_bigramas):
+            bigrams = generar_bigrams(palabra)
+            vector = [0] * len[diccionario_bigramas]
+
+            for bigrama in bigrams:
+                if bigrama en diccionario_bigramas:
+                    vector[diccionario_bigramas[bigrama]] = 1
+
+            return vector
+                    </pre>
+    </div>
+
+</div>
+<div class="parallaxdog"></div>
+
+<div class="container">
+<h2>Caso de Uso: Embeddings para Razas de Perros</h2>
+<p>
     Apliquemos este concepto en un caso práctico utilizando razas de perros. Hemos generado embeddings para una lista de razas de perros, y cuando un usuario introduce una raza, el sistema compara la raza ingresada con los embeddings de otras razas para encontrar la más cercana. Esto es útil para corregir errores tipográficos, como cuando alguien escribe "Beagel" en lugar de "Beagle".
 </p>
 

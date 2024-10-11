@@ -1,1 +1,447 @@
-Puto el que lo lea
+{% extends "base.html" %}
+
+{% block title %}GeoGreen View{% endblock %}
+
+{% block content %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+rel="stylesheet"
+href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+/>
+<div class="container">
+    <h2>GeoGreenView: Mapping Urban Green Spaces for a Greener Future</h2>
+
+    <p>
+        <strong>GeoGreenView</strong> is an interactive web-based tool designed to analyze and compare the green areas (vegetation) within urban spaces, focusing in our hometown: Puebla, México. This tool allows users to explore and visualize the distribution of green zones by dividing the city into grids and analyzing satellite images to detect urban vegetation.        </p>
+    <h3>How does it work?</h3>
+    <p>
+        <strong>GeoGreenView</strong> operates by using satellite images sourced from Google Maps. The cities are divided into grid-like sections, and a custom-built vegetation detection algorithm is applied to each grid. This algorithm processes the images to identify and highlight areas covered by vegetation. The results are presented through an interactive interface where users can explore cities, view their respective green zones, and compare distributions across different regions. The platform dynamically updates depending on the selected region, providing visual feedback on the percentage of green space within urban grids.
+    </p>
+</div>
+
+<div class="parallaxgeogreen"></div>
+
+<div class="container">
+        <h2>GeoGreen Applied in the City of Puebla</h2>
+        <p>
+        GeoGreenView is being applied in the city of Puebla, where this tool is used to analyze and visualize green spaces across the city. By dividing the urban area into grids and using satellite data, we can assess the distribution of vegetation and its impact on the environment and local urban planning.
+        </p>
+</div>
+
+    
+<div class="container_geo">
+    <div id="map"></div>
+    <div id="controls">
+    <button id="analyze-grid">Analyze Grids</button>
+    
+    <!-- Opacity Slider -->
+    <label for="opacityRange">Opacity: </label>
+    <input type="range" id="opacityRange" min="10" max="100" value="10" />
+    
+        <!-- Legend for Vegetation Levels -->
+    <div id="legend">
+        <h4>Vegetation Levels</h4>
+        <i style="background: red"></i> <b>Low</b> (0-10%)<br />
+        <i style="background: orange"></i>
+        <b>Medium-Low</b>(10-20%)<br />
+        <i style="background: yellow"></i> <b>Medium</b> (20-30%)<br />
+        <i style="background: yellowgreen"></i
+        ><b>Medium-High</b> (30-50%)<br />
+        <i style="background: green"></i><b>High</b> (50-100%)<br />
+    </div>
+    </div>
+    </div>
+
+
+
+<div class="container">
+    <h3>Why does it matter? </h3>
+    <p>
+        Urban green spaces play a crucial role in enhancing the quality of life and environmental health in cities. These areas, which include parks, tree-lined streets, and urban forests, provide a multitude of benefits that positively impact both individuals and communities.
+    </p>
+    <p>
+        First and foremost, green spaces are essential for improving public health. They encourage physical activity such as walking, cycling, and jogging, which contributes to reducing rates of cardiovascular diseases, obesity, and other health issues. Moreover, they promote mental well-being by reducing stress and improving cognitive function. Studies show that access to nature and green spaces can lower the rates of anxiety, depression, and other mental health issues, particularly in disadvantaged communities that otherwise lack access to such resources
+        <a href="https://www.weforum.org/agenda/2021/05/nature-green-space-urban-cities-exercise-fresh-air/" class="reference-link" target="_blank">[1]</a>
+        <a href="https://www.nhm.ac.uk/discover/why-we-need-green-spaces-in-cities.html" class="reference-link" target="_blank">[2].</a>
+    </p>
+
+    <p>
+    From an environmental perspective, green areas mitigate the urban heat island effect, a phenomenon where urban spaces experience higher temperatures due to heat trapped by buildings and infrastructure. By cooling these areas, green spaces reduce energy consumption for air conditioning and help counteract climate change. Additionally, they improve air quality by absorbing pollutants and filtering harmful gases like carbon dioxide
+    <a href="https://www.isglobal.org/en/healthisglobal/-/custom-blog-portlet/why-more-green-space-is-essential-for-cities/4735173/0" class="reference-link" target="_blank">[3].</a>
+
+    </p>
+</div>
+
+<div class="container">
+    <h3>What benefits does it have?</h3>
+    <p>
+        We believe that this project raises awareness, it highlights the importance of green areas in urban spaces, focusing in their positive impact on air quality, mental well-being, public health, and overall quality of life.
+        Also, the tool could potentially offer policymakers and urban planners a data-driven comparison of green space distribution, emphasizing the need for sustainable urban development in cities with low green area density. 
+        And finally, by providing a user-friendly and interactive experience, it encourages the public to learn about the significance of green spaces in our home town and supports advocacy for urban vegetation.        </p>
+    <h3>What do we hope to achieve?</h3>
+    <p>
+        GeoGreenView aims to foster an understanding of the critical role of green spaces in urban planning. It seeks to inform both policymakers and citizens about the disparities in green space availability and the need for greener, more sustainable urban environments. Through the interactive display of this information, the tool aspires to encourage more proactive approaches to urban development that prioritize the integration of green areas, especially in cities where these spaces are limited.        </p>
+</div>
+
+<div class="container">
+    <h3>What percentage of cities should be green areas?</h3>
+    <p>
+    The recommended percentage of green areas in a city is a topic of increasing interest, as these spaces play a crucial role in the quality of urban life. According to the World Health Organization (WHO), it is suggested that each city should have at least 9 square meters of green space per inhabitant to ensure a healthy quality of life. However, some experts and environmental organizations advocate for even more ambitious goals.
+    </p>
+    <p>
+    Various studies have indicated that around 15-20% of urban territory should be dedicated to green areas. This percentage can vary depending on population density and the geographic characteristics of each city. In densely populated regions, such as some megacities, achieving these levels can be challenging, reinforcing the need to strategically design and plan green spaces to ensure equitable access for all residents.
+    </p>
+    <p>
+    Having a higher percentage of green areas not only provides aesthetic and recreational benefits but is also crucial for the environmental sustainability of cities. Green spaces help improve air quality, reduce urban heat islands, and mitigate the effects of climate change by absorbing CO2. They also promote local biodiversity and provide safe spaces for social interaction and recreation.
+    </p>
+    <p>
+    Ultimately, the more green a city has, the better the quality of life for its inhabitants. Green areas are not a luxury, but a vital necessity for the physical and mental well-being of urban populations.
+    </p>
+</div>
+
+<div class="container">
+    <h2>Copenhagen: A Model of Urban Green Spaces</h2>
+    <img src="{{ url_for('static', filename='img/copenhagen.jpg') }}" 
+    alt="Copenhagen Green Spaces" 
+    style="width: 80%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
+    <p>
+    Copenhagen, Denmark, is widely recognized as one of the greenest cities in the world. Over the years, the city has made great strides in integrating green spaces into its urban landscape, aiming for a harmonious balance between urban development and nature. The city has set ambitious goals to become carbon-neutral by 2025, and its green initiatives play a crucial role in achieving this vision.
+    </p>
+    <p>
+    With parks, tree-lined streets, and green rooftops, Copenhagen prioritizes green areas not only for their aesthetic appeal but also for their role in improving air quality, reducing urban heat, and providing spaces for outdoor activities. One of the most iconic green spaces in the city is the King's Garden, which offers both residents and visitors a natural refuge in the heart of the city.
+    </p>
+    <p>
+    The city is also leading the way with innovative urban planning that incorporates green elements into residential and commercial areas. For example, the Superkilen Park is a public space that combines art, green areas, and recreational spaces, enhancing the quality of life for Copenhagen's residents.
+    </p>
+    <p>
+    Copenhagen's commitment to sustainability and urban greenery serves as an inspiring model for cities worldwide, demonstrating that a strong focus on green spaces can lead to both environmental benefits and a higher quality of life for its citizens.
+    </p>
+</div>
+    
+<div class="container">
+    <h2>Select Other Cities in Mexico</h2>
+    <p>Choose a city from the list below to explore its green areas using the GeoGreenView tool. </p>
+</div>
+
+
+<div class="container_buttons">      
+    <!-- City selection buttons -->
+    <button id= "Change_city", onclick="moveToCity(19.4326, -99.1332, 13)">Mexico City</button>
+    <button id= "Change_city", onclick="moveToCity(20.6597, -103.3496, 13)">Guadalajara</button>
+    <button id= "Change_city", onclick="moveToCity(25.6866, -100.3161, 13)">Monterrey</button>
+    <button id= "Change_city", onclick="moveToCity(21.1619, -86.8515, 13)">Cancún</button>
+    <button id= "Change_city", onclick="moveToCity(19.0413, -98.2062, 13)">Puebla</button>
+</div>
+
+<div class="container_geo">      
+
+    <div id="city-map"></div>
+    <div id="city-controls">
+        <button id="analyze-grid-city">Analyze Grids</button>
+    
+        <!-- Slider de opacidad -->
+        <label for="opacityRangeCity">Opacity: </label>
+        <input type="range" id="opacityRangeCity" min="10" max="100" value="10" style="width: 100%;" />
+    
+        <!-- Leyenda de niveles de vegetación -->
+        <div id="legend">
+          <h4>Vegetation Levels</h4>
+          <i style="background: red"></i> <b>Low</b> (0-10%)<br />
+          <i style="background: orange"></i>
+          <b>Medium-Low</b>
+          (10-20%)<br />
+          <i style="background: yellow"></i> <b>Medium</b> (20-30%)<br />
+          <i style="background: yellowgreen"></i
+          ><b>Medium-High</b> (30-50%)<br />
+          <i style="background: green"></i><b>High</b> (50-100%)<br />
+        </div>
+      </div>
+    </div>
+
+</div>       
+
+
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+<script>
+  var map = L.map("map").setView([19.0413, -98.2062], 14); // Puebla coordinates
+  var googleSatLayer = L.tileLayer(
+    "https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+    {
+      attribution: "Map data ©2024 Google",
+      maxZoom: 20,
+    }
+  );
+  googleSatLayer.addTo(map);
+
+  var gridLayer;
+  var currentOpacity = 0.1; // Initial opacity value from slider
+
+  // Get the opacity slider element
+  var opacitySlider = document.getElementById("opacityRange");
+
+  // Listen for slider value changes
+  opacitySlider.addEventListener("input", function () {
+    currentOpacity = opacitySlider.value / 100;
+    gridLayer.eachLayer(function (layer) {
+      if (layer instanceof L.Rectangle) {
+        layer.setStyle({ fillOpacity: currentOpacity });
+      }
+    });
+  });
+
+  // Function to draw grid
+  function addGrid() {
+    gridLayer = L.layerGroup();
+    var zoom = 13;
+    var step = zoom >= 17 ? 0.001 : zoom >= 15 ? 0.005 : 0.009;
+    //var step = 0.01;
+
+    var bounds = map.getBounds();
+    var southWest = bounds.getSouthWest();
+    var northEast = bounds.getNorthEast();
+
+    for (
+      var lat = Math.floor(southWest.lat / step) * step;
+      lat < northEast.lat;
+      lat += step
+    ) {
+      for (
+        var lng = Math.floor(southWest.lng / step) * step;
+        lng < northEast.lng;
+        lng += step
+      ) {
+        var rect = L.rectangle(
+          [
+            [lat, lng],
+            [lat + step, lng + step],
+          ],
+          {
+            color: "#ff7800",
+            weight: 1,
+            fillOpacity: currentOpacity,
+          }
+        );
+        rect.addTo(gridLayer);
+      }
+    }
+    gridLayer.addTo(map);
+  }
+
+  // Function to get color based on vegetation percentage
+  function getVegetationColor(porcentaje) {
+    return porcentaje > 50
+      ? "green"
+      : porcentaje > 30
+      ? "yellowgreen"
+      : porcentaje > 20
+      ? "yellow"
+      : porcentaje > 10
+      ? "orange"
+      : "red";
+  }
+
+  // Function to analyze each grid cell
+  function analyzeGrid() {
+    var rectangles = [];
+    gridLayer.eachLayer(function (layer) {
+      if (layer instanceof L.Rectangle) {
+        rectangles.push(layer);
+      }
+    });
+
+    rectangles.forEach(function (rect) {
+      var bounds = rect.getBounds();
+      var center = bounds.getCenter();
+      var lat = center.lat;
+      var lng = center.lng;
+
+      fetch("/process_tile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          lat: lat,
+          lng: lng,
+          zoom: 13,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          var porcentaje = data.porcentaje_vegetacion;
+
+          // Set the rectangle color and opacity based on vegetation percentage
+          rect.setStyle({
+            color: getVegetationColor(porcentaje),
+            fillOpacity: currentOpacity,
+          });
+
+          // Add the percentage label on the grid
+          var percentageLabel = L.marker(rect.getBounds().getCenter(), {
+            icon: L.divIcon({
+              className: "percentage-label",
+              html: `${porcentaje.toFixed(2)}%`,
+            }),
+          }).addTo(gridLayer);
+        })
+        .catch((error) => {
+          console.error("Error al analizar la cuadrícula:", error);
+        });
+    });
+  }
+  // Add grid to map
+  addGrid();
+
+  // Analyze grid on button click
+  document.getElementById("analyze-grid").addEventListener("click", () => {
+    analyzeGrid();
+  });
+
+  // Redraw grid on map movement or zoom
+  map.on("moveend", function () {
+    map.removeLayer(gridLayer);
+    addGrid();
+  });
+
+  // Initialize a new map for city selection in the "city-map" div
+var cityMap = L.map("city-map").setView([19.4326, -99.1332], 13); // Default to Mexico City
+var googleCityLayer = L.tileLayer(
+"https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
+{
+attribution: "Map data ©2024 Google",
+maxZoom: 20,
+}
+);
+googleCityLayer.addTo(cityMap);
+
+var cityGridLayer;
+var currentCityOpacity = 0.1; // Initial opacity value for second map slider
+
+// Get the opacity slider for the second map
+var opacitySliderCity = document.getElementById("opacityRangeCity");
+
+// Listen for slider value changes (second map)
+opacitySliderCity.addEventListener("input", function () {
+currentCityOpacity = opacitySliderCity.value / 100;
+cityGridLayer.eachLayer(function (layer) {
+if (layer instanceof L.Rectangle) {
+  layer.setStyle({ fillOpacity: currentCityOpacity });
+}
+});
+});
+
+// Function to draw grid on the second map
+function addCityGrid() {
+cityGridLayer = L.layerGroup();
+var zoom = 13;
+var step = zoom >= 17 ? 0.001 : zoom >= 15 ? 0.005 : 0.009;
+
+var bounds = cityMap.getBounds();
+var southWest = bounds.getSouthWest();
+var northEast = bounds.getNorthEast();
+
+for (
+var lat = Math.floor(southWest.lat / step) * step;
+lat < northEast.lat;
+lat += step
+) {
+for (
+  var lng = Math.floor(southWest.lng / step) * step;
+  lng < northEast.lng;
+  lng += step
+) {
+  var rect = L.rectangle(
+    [
+      [lat, lng],
+      [lat + step, lng + step],
+    ],
+    {
+      color: "#ff7800",
+      weight: 1,
+      fillOpacity: currentCityOpacity,
+    }
+  );
+  rect.addTo(cityGridLayer);
+}
+}
+cityGridLayer.addTo(cityMap);
+}
+
+// Function to analyze each grid cell on the second map
+function analyzeCityGrid() {
+var rectangles = [];
+cityGridLayer.eachLayer(function (layer) {
+if (layer instanceof L.Rectangle) {
+  rectangles.push(layer);
+}
+});
+
+rectangles.forEach(function (rect) {
+var bounds = rect.getBounds();
+var center = bounds.getCenter();
+var lat = center.lat;
+var lng = center.lng;
+
+fetch("/process_tile", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    lat: lat,
+    lng: lng,
+    zoom: 13,
+  }),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    var porcentaje = data.porcentaje_vegetacion;
+
+    // Set the rectangle color and opacity based on vegetation percentage
+    rect.setStyle({
+      color: getVegetationColor(porcentaje),
+      fillOpacity: currentCityOpacity,
+    });
+
+    // Add the percentage label on the grid
+    var percentageLabel = L.marker(rect.getBounds().getCenter(), {
+      icon: L.divIcon({
+        className: "percentage-label",
+        html: `${porcentaje.toFixed(2)}%`,
+      }),
+    }).addTo(cityGridLayer);
+  })
+  .catch((error) => {
+    console.error("Error analyzing grid:", error);
+  });
+});
+}
+
+// Add city grid to the second map
+addCityGrid();
+
+// Analyze grid on the second map when the button is clicked
+document.getElementById("analyze-grid-city").addEventListener("click", () => {
+analyzeCityGrid();
+});
+
+// Redraw the grid on the second map when it moves or zooms
+cityMap.on("moveend", function () {
+cityMap.removeLayer(cityGridLayer);
+addCityGrid();
+});
+
+// Function to move the map to the selected city
+function moveToCity(lat, lng, zoom) {
+cityMap.setView([lat, lng], zoom);
+}
+
+
+</script>
+
+<div class="logo-container">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="footer-logo">
+</div>
+
+{% endblock %}

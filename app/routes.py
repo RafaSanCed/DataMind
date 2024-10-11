@@ -1,6 +1,8 @@
 from flask import render_template, request, jsonify
 from .embeddings import generate_bigram_vector, find_closest_point, get_initial_data, pca, reduced_embeddings, titles, bigram_to_index
 import json
+from .geogreen_processing import latlng_to_tile, download_google_tile, limpiar_carpeta_imagenes, calcular_porcentaje_vegetacion  # Importamos las funciones del archivo de procesamiento
+import os
 
 def init_routes(app):
 
@@ -46,3 +48,34 @@ def init_routes(app):
     @app.route('/GeoGreenView')
     def geogreen():
         return render_template('geogreen.html')
+    
+    @app.route('/process_tile', methods=['POST'])
+    def process_tile():
+        try:
+            data = request.json
+            lat = data['lat']
+            lng = data['lng']
+            zoom = 15
+
+            # Convertir a coordenadas de tile
+            x, y = latlng_to_tile(lat, lng, zoom)
+
+            # Descargar el tile y guardarlo en la carpeta
+            tile_path = os.path.join('tiles/', f"tile_{x}_{y}.png")
+            download_google_tile(x, y, zoom, tile_path)
+
+            # Calcular el porcentaje de vegetación
+            porcentaje_vegetacion = calcular_porcentaje_vegetacion(tile_path)
+
+            return jsonify({'porcentaje_vegetacion': porcentaje_vegetacion})
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500
+
+    @app.route('/start_analysis', methods=['POST'])
+    def start_analysis():
+        try:
+            # Limpiar las imágenes antes de realizar el análisis
+            limpiar_carpeta_imagenes()
+            return jsonify({'message': 'Carpeta limpiada con éxito, lista para nuevo análisis'}), 200
+        except Exception as e:
+            return jsonify({'error': str(e)}), 500

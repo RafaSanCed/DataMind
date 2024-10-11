@@ -11,7 +11,17 @@ html, body {
 h1, h2 {
     font-family: 'Fira Sans', sans-serif; /* Párrafos */
     color: #2c3e50; /* Color de texto más oscuro */
+    text-align: center;
+    margin-top: 50px; 
+    font-size: 2.5rem
 }
+
+h3 {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 40px;
+}
+
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1rem;
@@ -24,11 +34,44 @@ header {
     text-align: center;
 
 }
+.card {
+    flex-basis: 30%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
 
-/* Efecto Parallax */
+.parallaxdog {
+    background-image: url('/static/images/dog.webp');
+    background-attachment: fixed; /* Mantiene el efecto parallax */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir el área */
+    height: 700px; /* Ajusta la altura según tus preferencias */
+    width: 91%; /* Ajusta el ancho del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: block; /* Asegura que el margen auto funcione */
+    margin: 20px auto 0; /* Añade un margen superior de 20px, ajusta según necesites */
+}
+
 /* Efecto Parallax */
 .parallaxhistoria {
     background-image: url('/static/images/evolucion.webp');
+    background-attachment: fixed; /* Mantiene el efecto parallax */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir el área */
+    height: 700px; /* Ajusta la altura según tus preferencias */
+    width: 91%; /* Ajusta el ancho del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: block; /* Asegura que el margen auto funcione */
+}
+
+.parallaxgeogreen {
+    background-image: url('/static/images/geogreenview2.webp');
     background-attachment: fixed; /* Mantiene el efecto parallax */
     background-position: center; /* Centra la imagen */
     background-repeat: no-repeat; /* No repite la imagen */
@@ -39,7 +82,72 @@ header {
     display: block; /* Asegura que el margen auto funcione */
 }
 
+/* Contenedor general */
+.motivation-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Text (2fr) y Imagen (1fr) */
+    grid-template-rows: auto auto; /* Ajuste automático según contenido */
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
+    align-items: stretch; /* Hace que las alturas de las columnas coincidan */
+}
 
+
+/* Sección de motivación */
+.motivation-left, .thoughts-creative-left {
+    background-color: #f5fdf6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+}
+
+/* Imagen derecha arriba */
+.motivation-right-top {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+/* Imagen derecha arriba y abajo */
+.motivation-right-top, .motivation-right-bottom {
+    display: flex;
+    align-items: stretch; /* Ajusta la imagen para que coincida en altura con el texto */
+}
+
+/* Asegura que las imágenes se estiren para coincidir con el contenido de texto */
+.motivation-right-top img, .motivation-right-bottom img {
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Se ajusta a la altura de la sección de texto */
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Sección de línea de pensamiento y proceso creativo */
+.thoughts-creative-left {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    background-color: #f5fdf6;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    height: auto; /* Asegura que la altura se ajuste al contenido */
+    min-height: 100px; /* Para que no sea demasiado pequeño */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Asegura que el contenido esté centrado */
+}
+
+/* Imagen derecha abajo */
+.motivation-right-bottom {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
 
 /* Estilos para la barra superior */
 .top-bar {
@@ -122,15 +230,14 @@ header nav {
 .menu-left li a:hover {
     color: white;
     background-color: #134121; /* Fondo verde para el enlace activo */
-    border-radius: 3px;
+    border-radius: 8px;
 }
 
 /* Estilos para el contenedor de búsqueda */
 .search-container {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: 30px;
+    width: 80%;
     height: 20%;
     background-color: #f5fdf6;
     display: none;
@@ -152,6 +259,23 @@ header nav {
     color: #134121;
     background-color: transparent;
 }
+
+/* Para que el contenedor de búsqueda aparezca */
+.search-container.active {
+    display: flex;
+}
+
+.search-container input {
+    width: 60%;
+    padding: 10px;
+    border: none; /* Elimina el borde */
+    font-size: 1.2rem;
+    background-color: transparent; /* Fondo transparente */
+    color: #134121; /* Color del texto */
+    outline: none; /* Elimina el contorno */    
+}
+
+
 .search-btn {
     background-color: transparent;
     color: #134121;
@@ -161,12 +285,6 @@ header nav {
     cursor: pointer;
     border-radius: 4px;
 }
-
-/* Para que el contenedor de búsqueda aparezca */
-.search-container.active {
-    display: flex;
-}
-
 
 /* Overlay semitransparente */
 .search-overlay {
@@ -184,53 +302,11 @@ header nav {
 .search-overlay.active {
     display: block; /* Se muestra el overlay */
 }
-/* Estilos generales para el menú */
-.dropdown-content,
-.sub-dropdown-content {
-    background-color: #f5fdf6;
-}
-
-.dropdown:hover .dropbtn,
-.dropdown-content .dropdown:hover > a,
-.sub-dropdown-content a:hover {
-    background-color: #134121; /* Verde oscuro */
-    color: white;
-}
-
-/* Solo los elementos seleccionados se resaltan */
-.dropdown-link.active,
-.sub-dropdown-link.active {
-    background-color: #134121;
-    color: white;
-}
-
-/* Cuando el mouse está sobre una subsección, resalta también el menú principal y su subsección */
-.sub-dropdown-content a:hover {
-    background-color: #134121;
-    color: white;
-}
-
-.dropdown:hover .sub-dropdown-content a.active {
-    background-color: #134121;
-    color: white;
-}
-
-
-.search-container input {
-    width: 60%;
-    padding: 10px;
-    border: none; /* Elimina el borde */
-    font-size: 1.2rem;
-    background-color: transparent; /* Fondo transparente */
-    color: #134121; /* Color del texto */
-    outline: none; /* Elimina el contorno */
-    
-}
-
 
 .search-input{
     background-color:f5fdf6;
 }
+
 .search-right {
     display: flex;
     align-items: center;
@@ -267,7 +343,7 @@ header nav {
     align-items: center;
     justify-content: center; /* Alinear todo el contenido del menú al centro */
     flex-grow: 1; /* Hace que el menú ocupe el espacio disponible */
-
+    width: 80%;
 }
 
 header nav ul {
@@ -298,14 +374,23 @@ header nav ul li a {
 
 }
 
-
+.dropdown:hover .dropbtn,
+.dropdown-content .dropdown:hover > a,
+.sub-dropdown-content a:hover
+.sub-dropdown-content a.active
+.dropdown-content a:hover
+.dropdown-link.active,
+.sub-dropdown-link.active  {
+    background-color: #134121; 
+    color: white;
+}
 
 /* Estilos del dropdown */
 .dropdown-content {
     display: none;
     position: absolute;
     background-color: #f5fdf6;
-    width: 100%;
+    width: 80%;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
     z-index: 100;
     right: 0;
@@ -313,7 +398,6 @@ header nav ul li a {
     top: 100%; /* Despliega hacia abajo respecto al botón */
     min-width: 100%;
 }
-
 
 .dropdown-content a {
     color: black;
@@ -325,10 +409,7 @@ header nav ul li a {
 .dropdown-content a:last-child {
     border-bottom: none; /* Elimina la línea del último elemento */
 }
-.dropdown-content a:hover {
-    background-color: #134121;
-    color: white;
-}
+
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -360,12 +441,13 @@ header nav ul li a {
 }
 
 .dropbtn {
-    padding: 12px 20px;
+    padding: 10px 12px;
     background-color: transparent;
-    color: black;
+    color: rgba(0, 0, 0, 0.7);
     font-size: 1.2rem;
     border: none;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .dropbtn:hover {
@@ -384,7 +466,6 @@ main {
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); /* Sombra */
     width: 90%; /* Ajusta el ancho del contenedor */
 }
-
 
 /* Footer Styling */
 footer {
@@ -520,7 +601,7 @@ footer a:hover {
     width: 92%;
 }
 
-.card {
+.card_geo {
     flex-basis: 30%;
     background-color: #f9f9f9;
     padding: 20px;
@@ -613,10 +694,176 @@ footer a:hover {
     color: #333;
 }
 
-.code-block{
-    text-align: center;
+.code-block {
+    display: flex; /* Activa flexbox */
+    flex-direction: column; /* Asegura que los elementos hijos estén en una columna */
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    text-align: center; /* Alinea el texto al centro */
+    width: 50%; /* Ajusta el ancho del bloque de código */
+    margin: 0 auto; /* Centra el bloque de código en relación con su contenedor */
 }
 
+
+/* Flexbox container for map and controls */
+.container_geo {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 auto;
+    width: 80%;
+    flex-wrap: wrap;
+}
+.container_buttons {
+    display: flex;
+    gap: 20px;
+    transform: translateX(-40px); /* Mueve el contenedor 40px a la izquierda */
+    width: 80%;
+    flex-wrap: wrap;
+}
+
+
+
+
+#controls {
+width: 20%; /* Asegura que los controles ocupen el 20% del ancho */
+text-align: left;
+padding: 20px;
+box-sizing: border-box;
+border-radius: 8px;
+background-color: white;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#city-controls {
+    width: 20%; /* Asegura que los controles ocupen el 20% del ancho */
+    text-align: left;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+
+
+
+label[for="opacityRange"] {
+display: block;
+margin-top: 20px;
+}
+
+input[type="range"] {
+width: 100%;
+margin-bottom: 20px;
+}
+
+/* Legend styling */
+#legend {
+font-size: 14px;
+background: rgba(255, 255, 255, 0.8);
+padding: 10px;
+border-radius: 5px;
+}
+
+#legend i {
+width: 18px;
+height: 18px;
+margin-right: 8px;
+opacity: 0.7;
+display: inline-block;
+}
+
+
+#map {
+    height: 500px;
+    width: 70%; /* 75% of the width for the map */
+    margin-right: 20px; /* Add space between map and controls */
+    border: 2px solid #d3d3d3;
+    border-radius: 2rem;
+}
+
+#city-map {
+    height: 500px;
+    width: 70%; /* 75% of the width for the map */
+    margin-right: 20px; /* Add space between map and controls */
+    border: 2px solid #d3d3d3;
+    border-radius: 2rem;
+}
+
+
+
+.w-full {
+    width: 100%;
+}
+
+
+.percentage-label {
+padding: 2px;
+background-color: rgba(255, 255, 255, 0.5);
+width: fit-content!important;
+border-radius: 5px;
+color: black;
+font-weight: bold;
+text-align: center;
+}
+
+
+.card_geo {
+width: 80%;
+text-align: left;
+background-color: white;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+#analyze-grid {
+display: block; /* Hace que el botón ocupe toda la línea */
+margin: 0 auto; /* Centra el botón horizontalmente */
+padding: 10px 20px;
+background-color: #27ae60;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s ease;
+}
+
+#analyze-grid-city {
+    display: block; /* Hace que el botón ocupe toda la línea */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px
+    }
+
+#analyze-grid:hover {
+background-color: #219150;
+}
+
+/* Flexbox container for map and controls */
+
+
+#Change_city {
+    display: block; /* Hace que el botón ocupe toda la línea */
+    margin: 0 auto; /* Centra el botón horizontalmente */
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px
+    }
 
 /* Hacer que los elementos se apilen uno sobre otro en pantallas pequeñas */
 @media (max-width: 768px) {
@@ -624,7 +871,12 @@ footer a:hover {
         flex-direction: column;
         align-items: center; /* Centrar los elementos al apilarlos */
     }
-
+    .sub-dropdown-content {
+        position: relative;
+        top: auto; /* Resetear la posición superior */
+        left: 0; /* Asegurarse de que no se mueva hacia la derecha */
+        margin-top: 10px; /* Añadir un margen superior para espaciar el submenú */
+    }
     #graph {
         width: 95%;
         height: 50%;
@@ -634,7 +886,19 @@ footer a:hover {
         width: 100%;
         margin-top: 20px;
         height: 30vh;
-
+        .motivation-container {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+        }
+    
+        .motivation-right-top,
+        .motivation-right-bottom {
+            grid-column: 1 / 2;
+        }
     }
 
 }
+
+
+
+
