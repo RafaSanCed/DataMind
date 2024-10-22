@@ -44,6 +44,15 @@ header {
     text-align: justify;
 }
 
+/* Para centrar solo la imagen dentro del contenedor */
+.container img {
+    display: block;  /* Asegura que la imagen se comporte como un bloque */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%; /* Ajusta el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
 .parallaxdog {
     background-image: url('/static/images/dog.webp');
     background-attachment: fixed; /* Mantiene el efecto parallax */
@@ -104,6 +113,12 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Centra el contenido verticalmente */
+}
+
+
+.motivation-left p, 
+.thoughts-creative-left p {
+  text-align: justify;
 }
 
 /* Imagen derecha arriba */
@@ -752,6 +767,7 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 label[for="opacityRange"] {
 display: block;
 margin-top: 20px;
+text-align: center;
 }
 
 input[type="range"] {

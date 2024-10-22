@@ -8,46 +8,78 @@
 rel="stylesheet"
 href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 />
-<div class="container">
-    <h2>GeoGreenView: Mapping Urban Green Spaces for a Greener Future</h2>
 
-    <p>
-        <strong>GeoGreenView</strong> is an interactive web-based tool designed to analyze and compare the green areas (vegetation) within urban spaces, focusing in our hometown: Puebla, México. This tool allows users to explore and visualize the distribution of green zones by dividing the city into grids and analyzing satellite images to detect urban vegetation.        </p>
-    <h3>How does it work?</h3>
-    <p>
-        <strong>GeoGreenView</strong> operates by using satellite images sourced from Google Maps. The cities are divided into grid-like sections, and a custom-built vegetation detection algorithm is applied to each grid. This algorithm processes the images to identify and highlight areas covered by vegetation. The results are presented through an interactive interface where users can explore cities, view their respective green zones, and compare distributions across different regions. The platform dynamically updates depending on the selected region, providing visual feedback on the percentage of green space within urban grids.
-    </p>
+<h2>GeoGreenView</h2>
+
+<div class="motivation-container">
+  <!-- Parte superior izquierda: Motivación -->
+  <div class="motivation-left">
+    <h2>Motivación</h2>
+    <p>Este proyecto nació como parte de un hackatón, cuyo objetivo era aprovechar los <strong>Sistemas de Información Geográfica (SIG)</strong> para enfrentar una problemática en la comunidad. Tras analizar diversas opciones, se identificó que uno de los mayores desafíos en Puebla es la <strong>falta de áreas verdes</strong>.</p>
+    
+    <p>En las últimas décadas, Puebla ha experimentado un rápido crecimiento urbano que ha reducido los espacios naturales. A diferencia de otras ciudades con grandes parques o reservas naturales, <strong>Puebla carece de suficientes áreas verdes significativas</strong>. Esto afecta directamente la calidad de vida de sus habitantes y tiene consecuencias negativas en el medio ambiente. Ante esto, surgió la pregunta clave: <strong>¿qué porcentaje del territorio de la ciudad está cubierto por áreas verdes?</strong> Desarrollar una herramienta que permita cuantificar esta información y visualizarla claramente se convirtió en el objetivo principal.</p>
+    
+    <p>Así nació <strong>GeoGreenView</strong>, una plataforma cuyo propósito es medir y mostrar el porcentaje de áreas verdes en Puebla, facilitando tanto a ciudadanos como a planificadores urbanos el acceso a esta información. Utilizando imágenes satelitales y algoritmos especializados, se busca ofrecer datos precisos sobre la vegetación en diferentes zonas de la ciudad.</p>
 </div>
+
+
+  <!-- Parte superior derecha: Imagen relacionada con el problema -->
+  <div class="motivation-right-top">
+      <img src="/static/images/comunityproblem.webp" alt="Imagen relacionada con la motivación">
+  </div>
+
+  <!-- Parte inferior izquierda: Línea de pensamiento y proceso creativo -->
+  <div class="thoughts-creative-left">
+    <h3>Línea de Pensamiento</h3>
+    <p>El principal reto al desarrollar GeoGreenView fue encontrar una forma eficaz de medir el porcentaje de vegetación en una ciudad tan extensa como Puebla. Se sabía que los SIG jugarían un papel fundamental, pero se necesitaba traducir las imágenes satelitales en datos útiles para el análisis. La solución implementada fue dividir la ciudad en una cuadrícula de secciones manejables, permitiendo analizar cada una de estas áreas de forma independiente. Esta decisión permitió experimentar con diferentes tamaños de cuadrícula para lograr un balance entre el nivel de detalle y la velocidad de procesamiento. Finalmente, se logró un sistema que mantenía la precisión sin comprometer el rendimiento.</p>
+
+    <p>El siguiente desafío fue desarrollar un algoritmo capaz de detectar vegetación en las imágenes satelitales. Aquí entró en juego el análisis de los colores en las imágenes, utilizando índices de vegetación como el <strong>NDVI</strong> para mejorar la precisión. A pesar de que los tonos de verde suelen indicar vegetación, fue necesario ser cuidadoso con los elementos urbanos que podrían generar confusiones, como techos o sombras.</p>
+
+    <p>Luego de establecer el algoritmo, el paso lógico fue visualizar los datos. Se implementó un sistema de colores donde el verde representa áreas con mayor vegetación y el rojo aquellas con menos. Este sistema no solo es intuitivo para el público general, sino que ofrece una herramienta visual poderosa para los planificadores urbanos. Con la cuadrícula y el algoritmo en funcionamiento, se integró <strong>Leaflet.js</strong> para permitir a los usuarios interactuar con los mapas, visualizando en tiempo real el porcentaje de vegetación en cada sección de la ciudad. Aunque el proyecto comenzó con Puebla, el enfoque modular de GeoGreenView lo convierte en una solución escalable que podría aplicarse en otras ciudades que enfrenten desafíos similares en cuanto a la distribución de áreas verdes.</p>
+  </div>
+
+  <!-- Parte inferior derecha: Imagen relacionada con el proceso creativo -->
+  <div class="motivation-right-bottom">
+      <img src="/static/images/creativo.webp" alt="Imagen relacionada con el proceso creativo">
+  </div>
+</div>
+
+<div class="container">
+  <h2>Mapeando Espacios Verdes Urbanos para un Futuro Más Verde</h2>
+  <p><strong>GeoGreenView</strong> es una herramienta web interactiva diseñada para analizar y comparar las áreas verdes en zonas urbanas, comenzando con Puebla. A través de una interfaz intuitiva, los usuarios pueden explorar la distribución de la vegetación en la ciudad, dividida en cuadrículas, y visualizar los resultados a partir del análisis de imágenes satelitales.</p>
+
+  <h3>¿Cómo funciona?</h3>
+  <p>Se utilizan imágenes satelitales de Google Maps, dividiendo las ciudades en cuadrículas y aplicando un algoritmo personalizado para detectar vegetación en cada sección. Los resultados se presentan en una plataforma interactiva donde los usuarios pueden explorar las diferentes áreas, comparar los niveles de vegetación y obtener una visión más clara de la distribución verde en la ciudad.</p>
+</div>
+
 
 <div class="parallaxgeogreen"></div>
 
 <div class="container">
-        <h2>GeoGreen Applied in the City of Puebla</h2>
-        <p>
-        GeoGreenView is being applied in the city of Puebla, where this tool is used to analyze and visualize green spaces across the city. By dividing the urban area into grids and using satellite data, we can assess the distribution of vegetation and its impact on the environment and local urban planning.
-        </p>
+  <h3>GeoGreen aplicado en Puebla</h3>
+  <p><strong>GeoGreenView</strong> se implementa en la ciudad de Puebla, donde se analiza y visualiza los espacios verdes. Al dividir la ciudad en cuadrículas y utilizando datos satelitales, evaluamos la distribución de la vegetación y su impacto en el medio ambiente y la planificación urbana.</p>
 </div>
 
     
 <div class="container_geo">
     <div id="map"></div>
     <div id="controls">
-    <button id="analyze-grid">Analyze Grids</button>
+    <button id="analyze-grid">Analizar cuadrículas</button>
     
     <!-- Opacity Slider -->
-    <label for="opacityRange">Opacity: </label>
+    <label for="opacityRange">Opacidad: </label>
     <input type="range" id="opacityRange" min="10" max="100" value="10" />
     
         <!-- Legend for Vegetation Levels -->
     <div id="legend">
-        <h4>Vegetation Levels</h4>
-        <i style="background: red"></i> <b>Low</b> (0-10%)<br />
+        <h4>Niveles de vegetación</h4>
+        <i style="background: red"></i> <b>Bajo</b> (0-10%)<br />
         <i style="background: orange"></i>
-        <b>Medium-Low</b>(10-20%)<br />
-        <i style="background: yellow"></i> <b>Medium</b> (20-30%)<br />
+        <b>Medio-Bajo </b>(10-20%)<br />
+        <i style="background: yellow"></i> <b>Medio</b> (20-30%)<br />
         <i style="background: yellowgreen"></i
-        ><b>Medium-High</b> (30-50%)<br />
-        <i style="background: green"></i><b>High</b> (50-100%)<br />
+        ><b>Medio-Alto</b> (30-50%)<br />
+        <i style="background: green"></i><b>Alto</b> (50-100%)<br />
     </div>
     </div>
     </div>
@@ -55,78 +87,58 @@ href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 
 
 <div class="container">
-    <h3>Why does it matter? </h3>
-    <p>
-        Urban green spaces play a crucial role in enhancing the quality of life and environmental health in cities. These areas, which include parks, tree-lined streets, and urban forests, provide a multitude of benefits that positively impact both individuals and communities.
-    </p>
-    <p>
-        First and foremost, green spaces are essential for improving public health. They encourage physical activity such as walking, cycling, and jogging, which contributes to reducing rates of cardiovascular diseases, obesity, and other health issues. Moreover, they promote mental well-being by reducing stress and improving cognitive function. Studies show that access to nature and green spaces can lower the rates of anxiety, depression, and other mental health issues, particularly in disadvantaged communities that otherwise lack access to such resources
-        <a href="https://www.weforum.org/agenda/2021/05/nature-green-space-urban-cities-exercise-fresh-air/" class="reference-link" target="_blank">[1]</a>
+  <h3>¿Por qué es importante?</h3>
+  <p>Los espacios verdes juegan un papel esencial en la calidad de vida urbana. Desde promover actividades físicas hasta mitigar el impacto del cambio climático, estos espacios son fundamentales para mejorar la salud tanto física como mental de los habitantes, y también para reducir el efecto de isla de calor urbana, una preocupación creciente en ciudades como Puebla.</p>
+
+  <p>Los espacios verdes fomentan la actividad física, mejoran la salud mental y reducen el estrés. Además, contribuyen a la mitigación del cambio climático, reducen el calor urbano y mejoran la calidad del aire al absorber contaminantes
+  <a href="https://www.weforum.org/agenda/2021/05/nature-green-space-urban-cities-exercise-fresh-air/" class="reference-link" target="_blank">[1]</a>
         <a href="https://www.nhm.ac.uk/discover/why-we-need-green-spaces-in-cities.html" class="reference-link" target="_blank">[2].</a>
     </p>
 
-    <p>
-    From an environmental perspective, green areas mitigate the urban heat island effect, a phenomenon where urban spaces experience higher temperatures due to heat trapped by buildings and infrastructure. By cooling these areas, green spaces reduce energy consumption for air conditioning and help counteract climate change. Additionally, they improve air quality by absorbing pollutants and filtering harmful gases like carbon dioxide
-    <a href="https://www.isglobal.org/en/healthisglobal/-/custom-blog-portlet/why-more-green-space-is-essential-for-cities/4735173/0" class="reference-link" target="_blank">[3].</a>
+      <p>GeoGreenView aspira a concienciar a la población y a proporcionar a los responsables de la planificación urbana una herramienta para tomar decisiones basadas en datos
+      <a href="https://www.isglobal.org/en/healthisglobal/-/custom-blog-portlet/why-more-green-space-is-essential-for-cities/4735173/0" class="reference-link" target="_blank">[3].</a>
 
+    </p>
+
+    <h3>¿Qué porcentaje de las ciudades debería ser de áreas verdes?</h3>
+    <p>
+      El porcentaje recomendado de áreas verdes en una ciudad es un tema de creciente interés, ya que estos espacios juegan un papel crucial en la calidad de vida urbana. Según la Organización Mundial de la Salud (OMS), se sugiere que cada ciudad debería contar con al menos 9 metros cuadrados de área verde por habitante para garantizar una vida saludable. Sin embargo, algunos expertos y organizaciones ambientales abogan por metas aún más ambiciosas.
+    </p>
+    <p>
+      Diversos estudios han indicado que aproximadamente entre el 15-20% del territorio urbano debería estar destinado a áreas verdes. Este porcentaje puede variar dependiendo de la densidad poblacional y las características geográficas de cada ciudad. En regiones densamente pobladas, como algunas megaciudades, alcanzar estos niveles puede ser un desafío, lo que refuerza la necesidad de diseñar y planificar estratégicamente los espacios verdes para garantizar un acceso equitativo a todos los residentes.
+    </p>
+    <p>
+      Contar con un mayor porcentaje de áreas verdes no solo proporciona beneficios estéticos y recreativos, sino que también es crucial para la sostenibilidad ambiental de las ciudades. Los espacios verdes ayudan a mejorar la calidad del aire, reducen el efecto de isla de calor urbana y mitigan los efectos del cambio climático al absorber CO2. Además, promueven la biodiversidad local y ofrecen espacios seguros para la interacción social y la recreación.
+    </p>
+    <p>
+      En definitiva, mientras más áreas verdes tenga una ciudad, mejor será la calidad de vida de sus habitantes. Las áreas verdes no son un lujo, sino una necesidad vital para el bienestar físico y mental de las poblaciones urbanas.
     </p>
 </div>
 
 <div class="container">
-    <h3>What benefits does it have?</h3>
-    <p>
-        We believe that this project raises awareness, it highlights the importance of green areas in urban spaces, focusing in their positive impact on air quality, mental well-being, public health, and overall quality of life.
-        Also, the tool could potentially offer policymakers and urban planners a data-driven comparison of green space distribution, emphasizing the need for sustainable urban development in cities with low green area density. 
-        And finally, by providing a user-friendly and interactive experience, it encourages the public to learn about the significance of green spaces in our home town and supports advocacy for urban vegetation.        </p>
-    <h3>What do we hope to achieve?</h3>
-    <p>
-        GeoGreenView aims to foster an understanding of the critical role of green spaces in urban planning. It seeks to inform both policymakers and citizens about the disparities in green space availability and the need for greener, more sustainable urban environments. Through the interactive display of this information, the tool aspires to encourage more proactive approaches to urban development that prioritize the integration of green areas, especially in cities where these spaces are limited.        </p>
-</div>
-
-<div class="container">
-    <h3>What percentage of cities should be green areas?</h3>
-    <p>
-    The recommended percentage of green areas in a city is a topic of increasing interest, as these spaces play a crucial role in the quality of urban life. According to the World Health Organization (WHO), it is suggested that each city should have at least 9 square meters of green space per inhabitant to ensure a healthy quality of life. However, some experts and environmental organizations advocate for even more ambitious goals.
+    <h2>Copenhague: Un Modelo de Espacios Verdes Urbanos</h2>
+    <img src="{{ url_for('static', filename='images/copenhagen.jpg') }}" 
+    alt="Copenhagen Green Spaces"> 
+        <p>
+      Copenhague, Dinamarca, es un ejemplo mundial de planificación urbana verde, integrando espacios naturales en su desarrollo de manera armónica. Con el objetivo de ser carbono-neutral para 2025, Copenhague muestra que el desarrollo sostenible es fundamental para mejorar la calidad de vida.
     </p>
     <p>
-    Various studies have indicated that around 15-20% of urban territory should be dedicated to green areas. This percentage can vary depending on population density and the geographic characteristics of each city. In densely populated regions, such as some megacities, achieving these levels can be challenging, reinforcing the need to strategically design and plan green spaces to ensure equitable access for all residents.
+      Con parques, calles arboladas y techos verdes, la ciudad ha logrado reducir el calor urbano, mejorar la calidad del aire y ofrecer espacios recreativos para sus ciudadanos. GeoGreenView sigue este modelo, enfocándose en cómo se distribuyen las áreas verdes en las ciudades, permitiendo a los usuarios visualizar, a través de datos en tiempo real, cómo se distribuye la vegetación en cada área de Puebla.
     </p>
     <p>
-    Having a higher percentage of green areas not only provides aesthetic and recreational benefits but is also crucial for the environmental sustainability of cities. Green spaces help improve air quality, reduce urban heat islands, and mitigate the effects of climate change by absorbing CO2. They also promote local biodiversity and provide safe spaces for social interaction and recreation.
-    </p>
-    <p>
-    Ultimately, the more green a city has, the better the quality of life for its inhabitants. Green areas are not a luxury, but a vital necessity for the physical and mental well-being of urban populations.
-    </p>
-</div>
-
-<div class="container">
-    <h2>Copenhagen: A Model of Urban Green Spaces</h2>
-    <img src="{{ url_for('static', filename='img/copenhagen.jpg') }}" 
-    alt="Copenhagen Green Spaces" 
-    style="width: 80%; height: auto; border-radius: 8px; display: block; margin: 0 auto;">
-    <p>
-    Copenhagen, Denmark, is widely recognized as one of the greenest cities in the world. Over the years, the city has made great strides in integrating green spaces into its urban landscape, aiming for a harmonious balance between urban development and nature. The city has set ambitious goals to become carbon-neutral by 2025, and its green initiatives play a crucial role in achieving this vision.
-    </p>
-    <p>
-    With parks, tree-lined streets, and green rooftops, Copenhagen prioritizes green areas not only for their aesthetic appeal but also for their role in improving air quality, reducing urban heat, and providing spaces for outdoor activities. One of the most iconic green spaces in the city is the King's Garden, which offers both residents and visitors a natural refuge in the heart of the city.
-    </p>
-    <p>
-    The city is also leading the way with innovative urban planning that incorporates green elements into residential and commercial areas. For example, the Superkilen Park is a public space that combines art, green areas, and recreational spaces, enhancing the quality of life for Copenhagen's residents.
-    </p>
-    <p>
-    Copenhagen's commitment to sustainability and urban greenery serves as an inspiring model for cities worldwide, demonstrating that a strong focus on green spaces can lead to both environmental benefits and a higher quality of life for its citizens.
+      La cuadrícula de la imagen representa la proporción de vegetación en diferentes partes de la ciudad. Al igual que en Copenhague, GeoGreenView tiene como objetivo ayudar a las ciudades a mejorar su infraestructura verde, asegurando que las áreas verdes sean una prioridad en la planificación urbana futura.
     </p>
 </div>
     
 <div class="container">
-    <h2>Select Other Cities in Mexico</h2>
-    <p>Choose a city from the list below to explore its green areas using the GeoGreenView tool. </p>
+    <h2>Selecciona Otras Ciudades en México</h2>
+    <p>Elige una ciudad de la lista a continuación para explorar sus áreas verdes utilizando la herramienta GeoGreenView.</p>
 </div>
 
 
 <div class="container_buttons">      
     <!-- City selection buttons -->
-    <button id= "Change_city", onclick="moveToCity(19.4326, -99.1332, 13)">Mexico City</button>
+    <button id= "Change_city", onclick="moveToCity(19.4326, -99.1332, 13)">Ciudad de México</button>
     <button id= "Change_city", onclick="moveToCity(20.6597, -103.3496, 13)">Guadalajara</button>
     <button id= "Change_city", onclick="moveToCity(25.6866, -100.3161, 13)">Monterrey</button>
     <button id= "Change_city", onclick="moveToCity(21.1619, -86.8515, 13)">Cancún</button>
@@ -137,23 +149,23 @@ href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 
     <div id="city-map"></div>
     <div id="city-controls">
-        <button id="analyze-grid-city">Analyze Grids</button>
+        <button id="analyze-grid-city">Analizar cuadrículas</button>
     
         <!-- Slider de opacidad -->
-        <label for="opacityRangeCity">Opacity: </label>
+        <label for="opacityRangeCity">Opacidad: </label>
         <input type="range" id="opacityRangeCity" min="10" max="100" value="10" style="width: 100%;" />
     
         <!-- Leyenda de niveles de vegetación -->
         <div id="legend">
-          <h4>Vegetation Levels</h4>
-          <i style="background: red"></i> <b>Low</b> (0-10%)<br />
+          <h4>Niveles de vegetación</h4>
+          <i style="background: red"></i> <b>Bajo</b> (0-10%)<br />
           <i style="background: orange"></i>
-          <b>Medium-Low</b>
+          <b>Medio-Bajo </b>
           (10-20%)<br />
-          <i style="background: yellow"></i> <b>Medium</b> (20-30%)<br />
+          <i style="background: yellow"></i> <b>Medio</b> (20-30%)<br />
           <i style="background: yellowgreen"></i
-          ><b>Medium-High</b> (30-50%)<br />
-          <i style="background: green"></i><b>High</b> (50-100%)<br />
+          ><b>Medio-Alto</b> (30-50%)<br />
+          <i style="background: green"></i><b>Alto</b> (50-100%)<br />
         </div>
       </div>
     </div>
