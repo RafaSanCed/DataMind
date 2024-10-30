@@ -5,13 +5,285 @@
 {% block content %}
 
 <!-- Sección con Parallax para Historia de la IA -->
-
+<h2 class= "title-page">Historia de la Inteligencia Artificial</h2>
 <!-- Contenido adicional después de la imagen de parallax -->
-<div class="container">
-    <h2>¿Qué es la inteligencia artificial?</h2>
-    <p>Primero que nada, necesitamos definir claramente de qué estamos hablando cuando mencionamos a la IA. ¿Qué es la inteligencia artificail, el machine learning y el deep learnig y como se relacionan? Esta relación se puede visualizar en la siguiente figura</p>
-    <img class="image-container" src="/static/images/machineia.png" alt="Imagen relacionada con el proceso creativo">
-</div>
+<div class="container-nobox">
+    <h2>¿Qué es la inteligencia y cómo comenzó su formalización?</h2>
+
+    <p>La pregunta sobre qué es la inteligencia ha intrigado a la humanidad desde tiempos antiguos. ¿Es la inteligencia simplemente la capacidad de resolver problemas, o hay algo más, algo más profundo que trasciende los cálculos matemáticos? Desde la filosofía clásica hasta las ciencias modernas, la inteligencia ha sido vista como una cualidad única que define al ser humano. Sin embargo, fue en el siglo XX cuando esta cuestión tomó una nueva dimensión: ¿podría la inteligencia ser replicada por una máquina? ¿Es posible construir sistemas que no solo realicen cálculos, sino que también piensen, aprendan y se adapten como lo hacen los seres humanos?</p>
+    
+    <p>Para responder a esta pregunta, se debía primero entender cómo los procesos lógicos y matemáticos subyacentes en el pensamiento humano podían formalizarse. En este contexto, a principios del siglo XX, el <strong>cálculo formal</strong> y la <strong>teoría de la computación</strong> emergieron como pilares fundamentales en la búsqueda de una inteligencia artificial. Lejos de ser simples conceptos abstractos, estas disciplinas ofrecían un lenguaje universal con el cual se podría modelar el razonamiento lógico, una de las facetas más importantes de la inteligencia.</p>
+    
+    <div class="parallaxaterriza"></div>
+
+    <h2>El Cálculo Formal y los Fundamentos de la Computación</h2>
+
+    <p>La formalización del pensamiento lógico comenzó con la necesidad de construir una base sólida sobre la cual se pudiera operar mecánicamente. Este viaje empezó con gigantes como <strong>Gottlob Frege</strong> y <strong>Bertrand Russell</strong>, quienes desarrollaron la lógica formal como una manera de entender las estructuras subyacentes del razonamiento. Pero fue en los años 30 del siglo XX cuando las ideas se transformaron en un camino concreto hacia la inteligencia artificial, a través de las contribuciones de figuras como <strong>Alan Turing</strong>, <strong>Kurt Gödel</strong> y <strong>Alonzo Church</strong>.</p>
+    
+    <h3>Gottlob Frege: Fundamentos de la Lógica Formal</h3>
+    <p>
+    Frege es conocido por haber desarrollado un <strong>sistema axiomático formal</strong> de lógica que es mucho más expresivo que la lógica de Aristóteles. La lógica de Frege introdujo el concepto de la <strong>lógica de predicados de primer orden</strong>, que es la base de la mayor parte de la lógica moderna y de los lenguajes formales utilizados en la computación.
+    </p>
+    
+    <h4>Lógica de Predicados de Primer Orden</h4>
+    <p>
+    En el sistema de Frege, cada proposición lógica se descompone en <strong>funciones</strong> y <strong>argumentos</strong>. En lugar de tratar los enunciados como entidades indivisibles, Frege introduce la noción de que una proposición puede ser una función de un número determinado de argumentos. Matemáticamente, una función en la lógica de predicados de Frege puede expresarse como:
+    </p>
+    <p class = "formula">
+    <em>f(x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>)</em>
+    </p>
+    <p>
+    donde <em>f</em> es una función proposicional y <em>x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub></em> son los argumentos. Un ejemplo de función proposicional sería:
+    </p>
+    <p class="formula">
+    <em>EsHumano(x)</em>
+    </p>
+    <p>
+    que devuelve verdadero si <em>x</em> es un humano, y falso si no lo es.
+    </p>
+    
+    <h4>Cuantificadores</h4>
+    <p>
+    Frege introdujo el uso de cuantificadores que permiten expresar proposiciones lógicas más complejas. Los dos cuantificadores principales son:
+    </p>
+    <ul>
+      <li><strong>Cuantificador Universal</strong> (<em>&forall;</em>): Indica que una proposición es verdadera para todos los elementos del dominio.</li>
+      <li><strong>Cuantificador Existencial</strong> (<em>&exist;</em>): Indica que existe al menos un elemento en el dominio para el cual la proposición es verdadera.</li>
+    </ul>
+    <p>
+    Una fórmula como:
+    </p>
+    <p class="formula">
+    <em>&forall; x (EsHumano(x) &rarr; EsMortal(x))</em>
+    </p>
+    <p>
+    expresa la afirmación de que para todo <em>x</em>, si <em>x</em> es humano, entonces <em>x</em> es mortal.
+    </p>
+    
+    <h4>Distinción entre sentido y referencia</h4>
+    <p>
+    Formalmente, Frege distinguió entre el <strong>sentido</strong> (Sinn) y la <strong>referencia</strong> (Bedeutung) de una expresión. Sea una función <em>f(x)</em>. La <em>referencia</em> de <em>f(x)</em> es el valor de verdad de la proposición, mientras que el <em>sentido</em> de <em>f(x)</em> es la manera en la que se presenta dicho valor. Matemáticamente, esto podría representarse en términos de dos operadores, donde la función de sentido proporciona un espacio intermedio antes de obtener la referencia definitiva.
+    </p>
+    
+    <h4>Principios Fundamentales de la Lógica de Frege</h4>
+
+    <p>En la lógica de Frege, no existe un conjunto cerrado de "axiomas" específicos como en otras teorías matemáticas. En su obra principal <em>Begriffsschrift</em> (1879), Frege establece una serie de reglas de inferencia y principios lógicos fundamentales que constituyen el núcleo de su sistema lógico. El objetivo de Frege fue desarrollar una notación y una teoría lógica para derivar proposiciones a partir de otras mediante una estructura formal. A continuación, algunos de los principios fundamentales en el sistema lógico de Frege:</p>
+    
+    <p><span class="bolded">Principio de Identidad:</span> Este principio afirma que todo es igual a sí mismo. Es un reflejo de la propiedad reflexiva de la igualdad:</p>
+    <p class="formula">a = a</p>
+    
+    
+    <p><span class="bolded">Principio de No Contradicción: </span>Una proposición no puede ser simultáneamente verdadera y falsa:</p>
+    <p class="formula">¬(P ∧ ¬P)</p>
+    
+    
+    <p><span class="bolded">Principio del Tercero Excluido: </span>Una proposición es verdadera o falsa, sin término medio:</p>
+    <p class="formula">P ∨ ¬P</p>
+    
+    <p><span class="bolded">Cuantificadores: </span> Frege introdujo los cuantificadores universales y existenciales para expresar generalizaciones:</p>
+    <p class="formula">∀x</p>
+    <p>Indica que todas las instancias de <em>x</em> cumplen la condición.</p>
+    <p class="formula">∃x</p>
+    <p>Indica que existe al menos una instancia de <em>x</em> que cumple la condición.</p>
+    
+    <p><span class="bolded">Condicional: </span> La implicación lógica (si <em>P</em>, entonces <em>Q</em>) es un principio básico de la inferencia:</p>
+    <p class="formula">P → Q</p>
+    
+    <p><span class="bolded">Reglas de Inferencia: </span>Una de las reglas clave es el <em>modus ponens</em>, que establece:</p>
+    <p class="formula">(P → Q) ∧ P → Q</p>
+    
+    <p><span class="bolded">Sustitución:</span> Las fórmulas y variables pueden ser sustituidas por otras equivalentes sin cambiar la verdad de la proposición.</p>
+    
+    <p><span class="bolded">Negación:</span> Frege usa la negación para definir muchos operadores lógicos. La negación de una proposición <em>P</em> es simplemente su falsedad:</p>
+    <p class="formula">¬P</p>
+    
+    <p><span class="bolded">Bicondicional:</span> El bicondicional establece que dos proposiciones <em>P</em> y <em>Q</em> son verdaderas o falsas simultáneamente:</p>
+    <p class="formula">P ↔ Q</p>
+    
+    <p><span class="bolded">Teorema de Deducción:</span> Frege establece un enfoque para deducir una proposición <em>P</em> a partir de otras mediante una cadena lógica.</p>
+    
+    <h4>Axiomas Formales del Sistema de Frege</h4>
+    
+    <p>Aunque Frege no desarrolló un conjunto de axiomas formalmente cerrado, se puede identificar un conjunto de axiomas implícitos en su obra, sobre todo en el "Begriffsschrift". Algunos de los axiomas o reglas que pueden interpretarse en su sistema son:</p>
+    
+    <p>  <span class="bolded">Axioma de Implicación</span>: Este axioma establece que si <em>A</em> es verdadero, entonces <em>B</em> implica <em>A</em>:</p>
+    
+    <p class="formula">A → (B → A)</p>
+    
+    <p><span class="bolded">Axioma de Transposición: </span>Este axioma describe que si la negación de <em>A</em> implica la negación de <em>B</em>, entonces <em>B</em> implica <em>A</em>:</p>
+    <p class="formula">(¬A → ¬B) → (B → A)</p>
+    
+    <p><span class="bolded">Axioma de Exportación</span>: El axioma de exportación establece la equivalencia entre las conjunciones y las implicaciones anidadas:</p>
+    <p class="formula">(A ∧ B) → C ↔ A → (B → C)</p>
+    
+    <p><span class="bolded">Axioma de Simplificación de Conjunción</span>: Este axioma establece que la conjunción de dos proposiciones implica una de ellas:</p>
+    <p class="formula">A ∧ B → A</p>
+    
+    <p><span class="bolded">Axioma de Disyunción</span>: El axioma de disyunción establece que una proposición <em>A</em> implica la disyunción entre <em>A</em> y <em>B</em>:</p>
+    <p class="formula">A → (A ∨ B)</p>
+    
+    
+    
+    <p>Frege desarrolló la primera notación lógica formal que es el antecesor del cálculo de predicados de primer orden. Su enfoque en la cuantificación y la formalización de relaciones lógicas representa un hito fundamental en la historia de la lógica, sentando las bases para la lógica matemática moderna.</p>
+    
+    
+    <h3>Bertrand Russell: Teoría de los Tipos y la Paradoja de Russell</h3>
+    <p>
+    Uno de los mayores problemas que surgió al intentar formalizar la lógica fue la <span class="bolded">paradoja de Russell</span>, que apareció en el propio sistema de Frege. La paradoja de Russell se plantea de la siguiente manera:
+
+    Supongamos que existe un conjunto <em>R</em> definido como el conjunto de todos los conjuntos que no se contienen a sí mismos:
+    </p>
+    <p class="formula">
+    <em>R = { x | x &notin; x }</em>
+    </p>
+    <p>
+    La pregunta es: ¿<em>R</em> pertenece a <em>R</em>? Si <em>R &isin; R</em>, entonces por la definición de <em>R</em>, <em>R &notin; R</em>. Sin embargo, si <em>R &notin; R</em>, entonces por la definición, <em>R &isin; R</em>. Esto genera una contradicción.
+    </p>
+    
+    <p>
+    Para evitar esta paradoja, Russell propuso la <span class="bolded">teoría de los tipos</span>, una jerarquía de conjuntos que prohíbe que los conjuntos se contengan a sí mismos directamente o indirectamente. En lugar de permitir que los conjuntos contengan otros conjuntos de cualquier nivel, Russell dividió los conjuntos en <strong>tipos</strong> de manera que los conjuntos de un tipo solo pueden contener elementos de tipos más bajos.
+    </p>
+    
+    <h4>Tipificación de conjuntos</h4>
+    <p>
+    En la teoría de los tipos, un conjunto de tipo <em>n</em> solo puede contener elementos de tipo <em>n-1</em>. De esta manera, la paradoja de Russell se evita, ya que no es posible que un conjunto <em>R</em> pertenezca a sí mismo.
+    Formalmente, si definimos <em>R<sup>n</sup></em> como un conjunto de tipo <em>n</em>, entonces la proposición:
+    </p>
+    <p class="formula">
+    <em>x &isin; R<sup>n</sup></em> es posible solo si <em>x &isin; R<sup>n-1</sup></em>.
+    </p>
+    <p>
+    Con este sistema, se establece una estructura jerárquica que resuelve la autorreferencia que causaba la paradoja.
+    </p>
+    
+    <h4>Principia Mathematica</h4>
+    <p>
+    Russell, junto con Alfred North Whitehead, desarrolló <em>Principia Mathematica</em> (1910-1913), un intento de formalizar las matemáticas usando la lógica. El sistema lógico de <em>Principia Mathematica</em> se basa en la teoría de los tipos de Russell y el trabajo de Frege. En este sistema:
+    </p>
+    <ul>
+      <li>Las proposiciones se definen dentro de un marco lógico-axiomático con reglas estrictas de tipificación.</li>
+      <li>Todos los términos deben estar bien tipificados para evitar contradicciones autorreferenciales.</li>
+      <li>El objetivo era reducir todas las matemáticas a un conjunto básico de reglas lógicas, lo que fue en gran medida un precursor de la teoría de la computación y los lenguajes formales.</li>
+    </ul>
+    
+    <h3>Implicaciones para la Teoría de la Computación</h3>
+    <p>
+    Tanto el trabajo de Frege en lógica de predicados como la teoría de tipos de Russell son fundamentales para el desarrollo de la <strong>teoría de la computación</strong>. Los lenguajes de programación modernos, como los lenguajes tipificados (Haskell, OCaml) y las bases formales de los lenguajes de máquinas, se apoyan en estos sistemas.
+    </p>
+    <ul>
+      <li><strong>Lógica de predicados</strong>: Se convirtió en la base para los lenguajes formales utilizados en la verificación de software y en los lenguajes de descripción de hardware.</li>
+      <li><strong>Teoría de los tipos</strong>: Proporciona un marco formal para prevenir errores en la programación y en la computación, ayudando a evitar contradicciones o errores de interpretación en el tratamiento de datos complejos.</li>
+    </ul>
+    <p>
+    Por lo tanto, en el trabajo de Frege y Russell no solo resolvió problemas fundamentales de la lógica y las matemáticas, sino que sentó las bases para el diseño de lenguajes formales y algoritmos computacionales, que más tarde serían cruciales en el desarrollo de la inteligencia artificial y la informática en general.
+    </p>
+    
+    <h2>El Concepto de Computabilidad y el Problema de la Decidibilidad</h2>
+
+    <p>Durante la primera mitad del siglo XX, surgieron preguntas profundas sobre los límites de las matemáticas y la lógica. La computabilidad y la decidibilidad fueron conceptos esenciales que plantearon: <strong>¿Qué problemas pueden resolverse mediante una serie finita de pasos y cuáles no?</strong> Este cuestionamiento impulsó el trabajo de matemáticos como <strong>Alan Turing</strong> y <strong>Alonzo Church</strong>, quienes sentaron las bases de la computación moderna.</p>
+    
+    <h3>Contexto y Origen de la Computabilidad</h3>
+    
+    <p>Para entender la computabilidad, debemos partir de la noción de un "procedimiento efectivo." Un procedimiento es efectivo si, siguiendo reglas finitas y bien definidas, podemos alcanzar un resultado en un tiempo finito. En otras palabras, un problema es <strong>computable</strong> si existe un método sistemático para resolverlo mediante una secuencia finita de pasos, siguiendo una lógica clara y predefinida.</p>
+    
+    <p>Sin embargo, ¿cómo formalizar un procedimiento efectivo? El intento de responder a esta pregunta llevó a la formulación de distintos modelos matemáticos para representar el concepto de cálculo, entre los cuales los dos más influyentes fueron el <strong>lambda cálculo</strong> de Alonzo Church y la <strong>máquina de Turing</strong> de Alan Turing. Ambos modelos dieron lugar a una definición formal de <strong>función computable</strong>, estableciendo así los límites de lo que una máquina puede, en principio, calcular.</p>
+    
+    <h3>¿Qué es el Problema de la Decidibilidad?</h3>
+    
+    <p>Uno de los problemas más importantes relacionados con la computabilidad es el <strong>problema de la decidibilidad</strong>. Este problema plantea la siguiente pregunta: <strong>¿Existe un algoritmo que pueda determinar, en un número finito de pasos, si una afirmación matemática es verdadera o falsa?</strong></p>
+    
+    <p>Este cuestionamiento es relevante porque algunos problemas matemáticos no son susceptibles de solución mediante métodos finitos. En términos más formales, una proposición matemática se considera <strong>decidible</strong> si existe un procedimiento que puede determinar su verdad o falsedad en un tiempo finito. La decidibilidad se formaliza mediante sistemas axiomáticos, donde cada afirmación dentro de dicho sistema puede probarse como verdadera o falsa. Sin embargo, <strong>Kurt Gödel</strong> demostró en su famoso <strong>teorema de incompletitud</strong> que en cualquier sistema axiomático suficientemente potente para la aritmética, existirán proposiciones que son verdaderas pero no pueden demostrarse dentro del sistema.</p>
+    
+    <p>Este hallazgo llevó a la conclusión de que la <strong>decidibilidad absoluta</strong> es inalcanzable en matemáticas, planteando límites a lo que puede ser probado o calculado en un sistema axiomático.</p>
+    
+    <h3>Formalización de la Computabilidad: La Tesis de Church-Turing</h3>
+    
+    <p>Para formalizar el concepto de computabilidad, Alonzo Church y Alan Turing propusieron dos modelos diferentes que describen el cálculo en términos de procedimientos sistemáticos.</p>
+    
+    <ul>
+      <li><strong>Lambda Cálculo</strong>: Church introdujo el lambda cálculo como un sistema formal para definir funciones mediante la abstracción de variables y su aplicación. En este modelo, una función se representa como una expresión matemática en la cual los argumentos se sustituyen y se simplifican para llegar a un resultado. Este formalismo proporcionó una manera de representar los cálculos en un lenguaje matemático, y se demostró que cualquier problema que pudiera resolverse mediante un algoritmo también podía ser representado en lambda cálculo.</li>
+      <li><strong>Máquina de Turing</strong>: Turing, por otro lado, creó un modelo basado en una máquina hipotética que ejecuta instrucciones en una cinta de longitud infinita dividida en celdas. Cada celda contiene un símbolo y la máquina puede leer, escribir y mover la cinta a la izquierda o derecha. Las instrucciones de la máquina determinan el comportamiento en cada paso, y este proceso es capaz de realizar cualquier cálculo que pueda ser representado de manera sistemática.</li>
+    </ul>
+    
+    <p>Estos dos modelos son equivalentes en términos de computabilidad, es decir, cualquier cálculo que pueda ser realizado en una máquina de Turing también puede expresarse mediante el lambda cálculo, y viceversa. Este principio es conocido como la <strong>Tesis de Church-Turing</strong>, que postula que cualquier función que pueda ser calculada algorítmicamente puede ser resuelta por una máquina de Turing. Así, la tesis establece los límites de la computación: <strong>si un problema no puede resolverse mediante una máquina de Turing, entonces no es computable</strong> en el sentido algorítmico.</p>
+    
+    <h3>Ejemplo del Problema de la Parada: Un Caso de Indecidibilidad</h3>
+    
+    <p>Un ejemplo famoso que ilustra el problema de la decidibilidad es el <strong>problema de la parada</strong> o <strong>Halting Problem</strong>. Este problema, propuesto por Alan Turing en 1936, plantea la siguiente pregunta: <strong>¿Existe un algoritmo que pueda determinar si cualquier otro algoritmo se detendrá en un tiempo finito o continuará ejecutándose indefinidamente?</strong></p>
+    
+    <p>Turing demostró que el problema de la parada es indecidible. Formalmente, esto significa que no existe un algoritmo universal que pueda resolver el problema de la parada para todos los programas posibles. Su demostración, que involucra una forma de autorreferencia y contradicción lógica, implica que hay límites inherentes en la capacidad de las máquinas para decidir ciertos problemas. En términos matemáticos:</p>
+    
+    <p class="formula">Si supusiéramos la existencia de una máquina <em>H</em> que determina si un programa <em>P</em> se detendrá, entonces podríamos construir un programa <em>Q</em> que se ejecute indefinidamente si <em>H</em> predice que <em>Q</em> se detendrá, y se detenga si <em>H</em> predice que <em>Q</em> no se detendrá. Esto lleva a una contradicción, demostrando que <em>H</em> no puede existir.</p>
+    
+    <p>Este resultado no solo fue un avance teórico significativo, sino que también subrayó los límites de la lógica formal y planteó restricciones fundamentales para el desarrollo de sistemas computacionales y, por extensión, de inteligencia artificial.</p>
+    
+    <h3>Implicaciones para la Inteligencia Artificial</h3>
+    
+    <p>El concepto de computabilidad y el problema de la decidibilidad son pilares de la teoría de la computación que, a su vez, fundamentan la inteligencia artificial. La Tesis de Church-Turing y los problemas indecidibles como el problema de la parada demuestran que existen limitaciones intrínsecas en los sistemas algorítmicos y que no todas las tareas pueden automatizarse. Esto implica que la inteligencia artificial, aunque poderosa, tiene limitaciones estructurales que dependen de la naturaleza de los problemas que se le plantean.</p>
+    
+    <p>En este contexto, el trabajo de Turing y Church no solo sentó las bases de la teoría de la computación, sino que también permitió trazar las fronteras de lo que una máquina puede hacer, marcando el inicio de una era donde la inteligencia artificial aspira a realizar tareas que, en última instancia, se originan en estos modelos formales de cálculo y razonamiento lógico.</p>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p>El avance clave llegó con el trabajo de Turing, quien desarrolló el concepto de la <strong>máquina de Turing</strong>. Esta idea revolucionaria introdujo un modelo abstracto de una máquina capaz de realizar cualquier cálculo computable. No era solo una herramienta teórica, sino una puerta de entrada a la comprensión de lo que significa computar. La máquina de Turing no solo dio nacimiento a la informática moderna, sino que también encendió el debate filosófico: si las máquinas podían ejecutar operaciones lógicas complejas, ¿podrían eventualmente "pensar"?</p>
+    
+    <h2>La Revolución de Turing y la Decidibilidad</h2>
+       
+    <h2>El Problema de la Decidibilidad y la Máquina de Turing</h2>
+    
+    <p>Uno de los primeros problemas a abordar fue el de la <strong>decidibilidad</strong>, una cuestión planteada en la lógica formal que preguntaba si todo problema matemático puede ser resuelto mediante un procedimiento algorítmico. En 1936, Alan Turing publicó un artículo que revolucionaría la manera de pensar sobre los cálculos mecánicos, en el que introdujo lo que hoy conocemos como la <strong>Máquina de Turing</strong>.</p>
+    
+    <p>La máquina de Turing es un dispositivo teórico que simula el proceso de cálculo de un algoritmo. Esta máquina simplificó el concepto de computación al representar cualquier algoritmo como una secuencia de operaciones sobre símbolos, moviéndose a través de una cinta infinita de entrada y salida. La importancia de esta idea radica en que formalizó la noción de un algoritmo, proporcionando una forma precisa de describir lo que significa "calcular".</p>
+    
+    <h2>El Teorema de Incompletitud de Gödel</h2>
+    
+    <p>Paralelamente a los desarrollos de Turing, Kurt Gödel, en 1931, ya había demostrado que no todas las verdades matemáticas pueden ser probadas utilizando los sistemas formales. Su <strong>Teorema de Incompletitud</strong> mostró que en cualquier sistema lógico suficientemente potente, existen afirmaciones que son verdaderas pero no demostrables dentro del propio sistema. Este resultado fue un golpe significativo para el <em>Hilbert's Program</em>, que buscaba un sistema completo y consistente para todas las matemáticas.</p>
+    
+    <p>Gödel, junto con Alonzo Church, quien desarrolló de manera independiente el <strong>Cálculo Lambda</strong>, sentaron las bases del pensamiento computacional. Ambos resultados, junto con el concepto de la máquina de Turing, llevaron a la conclusión de que no existe un método universal para decidir la verdad o falsedad de todas las proposiciones matemáticas. Este principio es fundamental para la inteligencia artificial, ya que muestra los límites inherentes de los sistemas computacionales.</p>
+    
+    <h2>El Modelo Neuronal de McCulloch y Pitts</h2>
+    
+    <p>A mediados de los años 40, la idea de la computación comenzó a entrelazarse con la neurociencia. En 1943, Warren McCulloch y Walter Pitts publicaron un trabajo pionero en el que propusieron el primer <strong>modelo de neuronas artificiales</strong>. Este modelo matemático describía cómo las neuronas podían ser modeladas mediante una red de funciones booleanas, utilizando compuertas lógicas para simular el comportamiento de las neuronas biológicas.</p>
+    
+    <p>El modelo de McCulloch-Pitts es considerado un precursor directo de las redes neuronales modernas, ya que demostraba que una red de neuronas artificiales podría computar cualquier función lógica. Aunque este modelo era muy simple en comparación con los sistemas actuales, abrió el camino para que futuros investigadores como Frank Rosenblatt, en los años 50, desarrollaran el <strong>perceptrón</strong>, uno de los primeros modelos de aprendizaje automático.</p>
+    
+    <h2>Conclusión: Las Bases Matemáticas de la Inteligencia Artificial</h2>
+    
+    <p>El cálculo formal y la teoría de la computación sentaron las bases matemáticas para el desarrollo de la inteligencia artificial. Desde la decidibilidad y las máquinas de Turing hasta los modelos neuronales, estas ideas proporcionaron los cimientos sobre los cuales se construyeron las primeras teorías y algoritmos que eventualmente llevarían a la creación de sistemas inteligentes. Entender esta etapa es crucial para apreciar cómo la IA no es una disciplina aislada, sino una extensión de preguntas matemáticas y lógicas que han sido exploradas durante siglos.</p>
+    </div>
 
 <div class="parallaxhistoria"></div>
 
