@@ -3,10 +3,9 @@ from flask import Flask
 def create_app():
     app = Flask(__name__)
 
-    # Configuración de la aplicación
     app.config.from_mapping(
         SECRET_KEY='dev',
-        # Agrega otras configuraciones si es necesario
+        # Otras configuraciones aquí si es necesario
     )
 
     # Importar y registrar rutas
