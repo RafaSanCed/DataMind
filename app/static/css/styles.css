@@ -87,6 +87,65 @@ header {
     height: auto; /* Mantiene la proporción de la imagen */
 }
 
+#indice-container {
+    position: relative; /* Ya no lo dejamos fijo */
+    margin:  auto;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    width: 50%;
+    text-align: center;
+}
+
+#indice-container h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#indice-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#indice-list li {
+  margin-bottom: 10px;
+}
+
+#indice-list a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #013001;
+  transition: color 0.2s ease-in-out;
+}
+
+#indice-list a:hover {
+  color: #0056b3;
+}
+
+/* Línea negra para separar el índice del contenido */
+#indice-container::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  margin-top: 15px;
+}
+  
+/* Línea negra para separar el índice del contenido */
+#indice-container::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    margin-top: 15px;
+  }
+    
+
+
 .parallaxdog {
     background-image: url('/static/images/dog.webp');
     background-attachment: fixed; /* Mantiene el efecto parallax */
@@ -100,6 +159,20 @@ header {
     margin: 20px auto 0; /* Añade un margen superior de 20px, ajusta según necesites */
 }
 
+.parallaxturing {
+    background-image: url('/static/images/Alan-Turing.webp');
+    background-attachment: fixed; /* Mantiene el efecto parallax */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* No repite la imagen */
+    background-size: cover; /* Ajusta la imagen para cubrir el área */
+    height: 700px; /* Ajusta la altura según tus preferencias */
+    width: 100%; /* Ajusta el ancho del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    display: block; /* Asegura que el margen auto funcione */
+    margin: 20px auto 0; /* Añade un margen superior de 20px, ajusta según necesites */
+}
+
+
 /* Efecto Parallax */
 .parallaxhistoria {
     background-image: url('/static/images/evolucion.webp');
@@ -108,7 +181,7 @@ header {
     background-repeat: no-repeat; /* No repite la imagen */
     background-size: cover; /* Ajusta la imagen para cubrir el área */
     height: 700px; /* Ajusta la altura según tus preferencias */
-    width: 91%; /* Ajusta el ancho del contenedor */
+    width: 100%; /* Ajusta el ancho del contenedor */
     margin: 0 auto; /* Centra el contenedor horizontalmente */
     display: block; /* Asegura que el margen auto funcione */
 }

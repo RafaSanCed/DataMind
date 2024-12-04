@@ -102,3 +102,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Seleccionar todos los h2 de la página
+  const headers = document.querySelectorAll("h2");
+  const indiceList = document.getElementById("indice-list");
+ 
+  headers.forEach((header, index) => {
+    // Excluir el título principal (por clase) y el índice mismo (por ID)
+    if (header.classList.contains("title-page") || header.id === "indice-container" || header.textContent === "Índice") {
+      return;
+    }
+ 
+    // Crear un ID único para cada h2 si no tiene uno
+    if (!header.id) {
+      header.id = `section-${index}`;
+    }
+ 
+    // Crear un elemento de lista para el índice
+    const listItem = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = `#${header.id}`;
+    link.textContent = header.textContent;
+ 
+    listItem.appendChild(link);
+    indiceList.appendChild(listItem);
+  });
+});
+  
