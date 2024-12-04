@@ -22,6 +22,11 @@ def init_routes(app):
     def historIA():
         return render_template('historIA.html')
 
+    @app.route('/machinelearning')
+    def machinelearning():
+        return render_template('machinelearning.html')
+
+    
     @app.route('/visualize', methods=['GET', 'POST'])
     def visualize():
         if request.method == 'POST':

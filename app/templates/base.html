@@ -36,9 +36,12 @@
                     <button class="dropbtn">Fundamentos de IA</button>
                     <div class="dropdown-content">
                         <div class="dropdown">
-                            <a href="#">Introducción a la Inteligencia Artificial</a>
+                            <a href="{{ url_for('historIA') }}">Breve Historia de la IA</a>
+                        </div>
+                        <div class="dropdown">
+                            <a href="#">Machine Learning</a>
                             <div class="sub-dropdown-content">
-                                <a href="{{ url_for('historIA') }}">Breve Historia de la IA</a>
+                                <a href="{{ url_for('machinelearning') }}">Introducción al Machine Learning</a>
                                 <a href="#">Clasificación de Texto</a>
                             </div>
                         </div>

@@ -26,10 +26,16 @@ h3 {
 
 /* CSS para centrar los h4 */
 h4 {
-    text-align: center;   /* Centrar el texto */
     margin: 10px 0;       /* Añadir un margen para separar los títulos */
     font-size: 1.4em;     /* Ajustar el tamaño del título */
 }
+
+/* CSS para centrar los h4 */
+h5 {
+    margin: 10px 0;       /* Añadir un margen para separar los títulos */
+    font-size: 1.2em;     /* Ajustar el tamaño del título */
+}
+
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -210,6 +216,16 @@ header {
     margin: 0 auto; /* Centra el contenedor horizontalmente */
     display: block; /* Asegura que el margen auto funcione */
 }
+
+.simple-image {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    max-width: 600px; /* Limita el tamaño máximo de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin: 20px auto; /* Centra la imagen horizontalmente y añade espacio alrededor */
+    display: block; /* Hace que la imagen se comporte como un bloque para centrarla */
+    border-radius: 10px; /* Opcional: Bordes redondeados para un toque moderno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Opcional: Sombra para dar profundidad */
+}  
 
 /* Contenedor general */
 .motivation-container {

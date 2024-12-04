@@ -1,0 +1,225 @@
+{% extends "base.html" %}
+
+{% block title %}Historia de la IA - Parallax en varias zonas{% endblock %}
+
+{% block content %}
+
+<div class="container-nobox">
+    <h2>Introducción al Machine Learning</h2>
+  
+
+      
+    <h3>¿Qué es Machine Learning?</h3>
+      
+        <p>
+          El <strong>Machine Learning (ML)</strong>, o aprendizaje automático, es una rama fundamental de la inteligencia artificial que se dedica a la creación de algoritmos y modelos capaces de aprender y generalizar a partir de datos. A diferencia de los enfoques tradicionales de programación, donde cada tarea específica debe ser programada manualmente, el Machine Learning permite que las máquinas desarrollen capacidades propias para identificar patrones en los datos y adaptarse a diferentes escenarios. Su objetivo principal no es solo procesar información, sino transformarla en decisiones inteligentes y predicciones útiles.
+        </p>
+      
+        <p>
+          En términos simples, el Machine Learning puede ser visto como un proceso en el que las computadoras son entrenadas para resolver problemas utilizando ejemplos en lugar de instrucciones predefinidas. Esto significa que, en lugar de depender de reglas estáticas creadas por humanos, los sistemas de aprendizaje automático "aprenden" de los datos para ajustarse y mejorar constantemente su rendimiento. Este aprendizaje no se limita a una sola tarea, sino que puede extenderse a una amplia variedad de dominios, desde la predicción de tendencias de mercado hasta la identificación de objetos en imágenes.
+        </p>
+      
+        <h4>Un Cambio de Paradigma</h4>
+        <p>
+          El enfoque del Machine Learning marca un cambio radical en la forma en que diseñamos sistemas computacionales. Los métodos tradicionales dependen de una lógica predeterminada y estructuras rígidas que no son adecuadas para manejar problemas complejos o ambientes dinámicos. En contraste, el Machine Learning adopta un enfoque más <strong>adaptativo</strong> y <strong>escalable</strong>, aprovechando su capacidad para aprender directamente de los datos.
+        </p>
+        <p>
+          Por ejemplo, en lugar de escribir un programa para identificar correos electrónicos de spam basándose en palabras clave específicas, un sistema de aprendizaje automático analizaría miles de ejemplos de correos electrónicos para identificar automáticamente patrones comunes en los mensajes de spam. Estos patrones pueden incluir combinaciones de palabras, formatos de correo o incluso patrones de comportamiento de los remitentes. Como resultado, el sistema es capaz de ajustarse a nuevos tipos de correos electrónicos de spam que no estaban previstos inicialmente.
+        </p>
+      
+        <h4>Ventajas del Enfoque de Machine Learning</h4>
+        <p>
+          El éxito del Machine Learning radica en su enfoque flexible, que ofrece numerosas ventajas sobre los sistemas tradicionales:
+        </p>
+        <ul>
+          <li>
+            <span class="bolded">Capacidad de adaptación:</span> Los modelos pueden ajustarse automáticamente a nuevos datos, manteniéndose relevantes en entornos cambiantes.
+          </li>
+          <li>
+            <span class="bolded">Automatización de tareas complejas:</span> Permite resolver problemas que serían imposibles de abordar mediante reglas estáticas, como el reconocimiento facial o la detección de anomalías en datos financieros.
+          </li>
+          <li>
+            <span class="bolded">Reducción del esfuerzo humano:</span> Una vez entrenado, el sistema opera de manera autónoma, minimizando la necesidad de intervención humana.
+          </li>
+          <li>
+            <span class="bolded">Detección de patrones sutiles:</span> Los algoritmos de Machine Learning pueden identificar relaciones complejas en los datos que no son evidentes para los humanos.
+          </li>
+        </ul>
+      
+
+        <h3>¿Cómo Funciona el Machine Learning?</h3>
+        <p>
+          El aprendizaje automático se basa en un enfoque iterativo que permite a las máquinas mejorar su rendimiento mediante la exposición continua a datos. El proceso general implica varias etapas clave que transforman datos en modelos que pueden tomar decisiones o realizar predicciones. A continuación, exploramos cada uno de estos pasos fundamentales:
+        </p>
+      
+        <h4>1. Recolección y Preparación de Datos</h4>
+        <p>
+          El primer paso en cualquier proyecto de Machine Learning es recopilar datos relevantes y prepararlos para el análisis. La calidad de los datos es crítica, ya que modelos bien diseñados no pueden superar las limitaciones de datos deficientes.
+        </p>
+        <p>
+          <strong>Ejemplo:</strong> Para construir un modelo de predicción del clima, es necesario recopilar datos históricos de temperatura, humedad y presión atmosférica, entre otros.
+        </p>
+        <ul>
+          <li><span class="bolded">Recolección:</span> Los datos pueden provenir de diversas fuentes, como sensores, bases de datos, APIs, o archivos CSV.</li>
+          <li><span class="bolded">Limpieza:</span> Se eliminan valores faltantes, se corrigen errores y se eliminan inconsistencias.</li>
+          <li><span class="bolded">Transformación:</span> Los datos se normalizan, escalan o se convierten a un formato adecuado para el modelo.</li>
+        </ul>
+      
+        <h4>2. Selección y Diseño del Modelo</h4>
+        <p>
+          Una vez que los datos están listos, se elige un modelo de Machine Learning adecuado según la tarea. Los modelos pueden ser de diversos tipos:
+        </p>
+        <ul>
+          <li><span class="bolded">Regresiones:</span> Modelos utilizados para predecir valores continuos, como precios o temperaturas.</li>
+          <li><span class="bolded">Clasificación:</span> Modelos diseñados para asignar etiquetas a las entradas, como "spam" o "no spam".</li>
+          <li><span class="bolded">Clustering:</span> Técnicas que agrupan datos similares en categorías no etiquetadas.</li>
+          <li><span class="bolded">Redes neuronales:</span> Modelos avanzados para tareas complejas como visión por computadora o procesamiento del lenguaje natural.</li>
+        </ul>
+      
+        <h5>¿Qué implica la selección del modelo?</h5>
+        <p>
+          Seleccionar un modelo implica entender las características de los datos y el objetivo de la tarea. Por ejemplo:
+        </p>
+        <ul>
+          <li>
+            Para datos lineales, una regresión lineal podría ser suficiente.
+          </li>
+          <li>
+            Para imágenes o texto, se requiere un modelo más complejo como una red neuronal convolucional o un transformer.
+          </li>
+        </ul>
+      
+        <h4>3. Entrenamiento del Modelo</h4>
+        <p>
+          Durante el entrenamiento, el modelo analiza los datos de entrada para identificar patrones y ajustar sus parámetros internos. Este paso utiliza un algoritmo de optimización que minimiza el error entre las predicciones del modelo y los resultados reales.
+        </p>
+        <h5>Conceptos Clave del Entrenamiento</h5>
+        <ul>
+          <li><span class="bolded">Función de costo:</span> Una métrica que evalúa qué tan bien está funcionando el modelo. Ejemplo: error cuadrático medio (MSE).</li>
+          <li><span class="bolded">Algoritmos de optimización:</span> Métodos como descenso de gradiente que ajustan los parámetros del modelo para minimizar el error.</li>
+          <li><span class="bolded">Iteraciones:</span> El modelo pasa por múltiples ciclos de entrenamiento para mejorar su precisión.</li>
+        </ul>
+      
+        <h4>4. Evaluación y Validación</h4>
+        <p>
+          Antes de implementar un modelo, es esencial evaluar su rendimiento. Esto se realiza utilizando un conjunto de datos separado (conocido como datos de prueba) que no ha sido utilizado durante el entrenamiento. Este paso garantiza que el modelo puede generalizar bien a nuevos datos.
+        </p>
+        <p>
+          Las métricas comunes incluyen:
+        </p>
+        <ul>
+          <li><span class="bolded">Precisión:</span> La proporción de predicciones correctas realizadas por el modelo.</li>
+          <li><span class="bolded">Recuperación (Recall):</span> Qué tan bien identifica correctamente los ejemplos relevantes.</li>
+          <li><span class="bolded">Matriz de confusión:</span> Una herramienta para analizar los errores de clasificación.</li>
+        </ul>
+      
+        <h4>5. Despliegue y Monitoreo</h4>
+        <p>
+          Una vez que el modelo ha sido validado, se implementa en un entorno de producción para realizar predicciones en tiempo real. Sin embargo, el despliegue no es el final del proceso; los modelos requieren un monitoreo constante para garantizar su eficacia.
+        </p>
+        <h5>Retos Comunes en el Despliegue</h5>
+        <ul>
+          <li><span class="bolded">Drift de datos:</span> Los datos reales pueden cambiar con el tiempo, afectando la precisión del modelo.</li>
+          <li><span class="bolded">Actualización del modelo:</span> Se debe retrenar el modelo periódicamente con nuevos datos para mantener su relevancia.</li>
+          <li><span class="bolded">Escalabilidad:</span> Implementar modelos en sistemas distribuidos para manejar grandes volúmenes de datos.</li>
+        </ul>
+      
+        <div class="container-nobox">
+            <h3>Clasificación de Algoritmos de Machine Learning</h3>
+            <p>
+              Los algoritmos de Machine Learning se pueden clasificar en diversas categorías según cómo aprenden y qué tipo de problemas resuelven. A continuación, presentamos estas categorías junto con una lista de los algoritmos más utilizados en cada una.
+            </p>
+
+
+            <img src="/static/images/aprendizajesup.jpg" alt="Imagen diferencia entre aprendizaje supervisado y no supervisado" class="simple-image">
+
+              
+            <h4>1. Aprendizaje Supervisado</h4>
+            <p>
+              En el aprendizaje supervisado, los modelos se entrenan utilizando datos etiquetados, donde cada entrada tiene una salida conocida. Esto permite que el modelo aprenda a predecir resultados para nuevos datos. 
+            </p>
+            <h5>Algoritmos de Regresión</h5>
+            <ul>
+              <li><span class="bolded">Regresión Lineal:</span> Modelo básico para predecir valores continuos basado en relaciones lineales.</li>
+              <li><span class="bolded">Regresión Polinómica:</span> Extiende la regresión lineal para capturar relaciones no lineales.</li>
+              <li><span class="bolded">Regresión Ridge:</span> Variante de la regresión lineal que penaliza coeficientes altos para evitar sobreajuste.</li>
+              <li><span class="bolded">Lasso:</span> Similar a Ridge, pero favorece modelos más simples eliminando variables irrelevantes.</li>
+            </ul>
+            <h5>Algoritmos de Clasificación</h5>
+            <ul>
+              <li><span class="bolded">Regresión Logística:</span> Utilizada para tareas de clasificación binaria, como "spam" o "no spam".</li>
+              <li><span class="bolded">Máquinas de Soporte Vectorial (SVM):</span> Encuentran un hiperplano óptimo para separar clases en el espacio de características.</li>
+              <li><span class="bolded">K-Nearest Neighbors (KNN):</span> Clasifica puntos nuevos en función de los vecinos más cercanos.</li>
+              <li><span class="bolded">Árboles de Decisión:</span> Representan decisiones como un árbol de preguntas basadas en características.</li>
+              <li><span class="bolded">Bosques Aleatorios:</span> Combina múltiples árboles de decisión para mejorar la precisión.</li>
+              <li><span class="bolded">Gradient Boosting:</span> Métodos como XGBoost o LightGBM que optimizan modelos combinados.</li>
+            </ul>
+          
+            <h4>2. Aprendizaje No Supervisado</h4>
+            <p>
+              En el aprendizaje no supervisado, los modelos trabajan con datos no etiquetados para descubrir patrones o estructuras ocultas. 
+            </p>
+            <h5>Algoritmos de Clustering</h5>
+            <ul>
+              <li><span class="bolded">K-means:</span> Divide los datos en un número específico de clústeres basándose en similitudes.</li>
+              <li><span class="bolded">Clustering Jerárquico:</span> Crea una jerarquía de agrupaciones, desde general a específico.</li>
+              <li><span class="bolded">DBSCAN:</span> Detecta clústeres de forma arbitraria y maneja ruido en los datos.</li>
+              <li><span class="bolded">Gaussian Mixture Models (GMM):</span> Utiliza distribuciones gaussianas para encontrar clústeres probabilísticos.</li>
+            </ul>
+            <h5>Algoritmos de Reducción de Dimensionalidad</h5>
+            <ul>
+              <li><span class="bolded">Análisis de Componentes Principales (PCA):</span> Reduce la cantidad de variables conservando la información clave.</li>
+              <li><span class="bolded">t-Distributed Stochastic Neighbor Embedding (t-SNE):</span> Visualiza datos de alta dimensión en dos o tres dimensiones.</li>
+              <li><span class="bolded">Autoencoders:</span> Redes neuronales que aprenden representaciones comprimidas de los datos.</li>
+            </ul>
+          
+            <h4>3. Aprendizaje Semi-Supervisado</h4>
+            <p>
+              El aprendizaje semi-supervisado combina datos etiquetados y no etiquetados para entrenar el modelo. Es útil cuando etiquetar todos los datos es costoso o difícil.
+            </p>
+            <h5>Algoritmos Comunes</h5>
+            <ul>
+              <li><span class="bolded">Propagación de Etiquetas:</span> Extiende etiquetas conocidas a datos no etiquetados basándose en similitudes.</li>
+              <li><span class="bolded">Modelos de Mezclas Gaussianas:</span> Se utilizan tanto en aprendizaje supervisado como no supervisado.</li>
+              <li><span class="bolded">Redes Neuronales Semi-Supervisadas:</span> Combinan la potencia de las redes neuronales con datos parcialmente etiquetados.</li>
+            </ul>
+          
+            <h4>4. Aprendizaje por Refuerzo</h4>
+            <p>
+              En el aprendizaje por refuerzo, un agente interactúa con un entorno y aprende a tomar decisiones para maximizar una recompensa acumulada. Este enfoque es ideal para problemas de control y toma de decisiones.
+            </p>
+            <h5>Algoritmos Clave</h5>
+            <ul>
+              <li><span class="bolded">Q-Learning:</span> Aprende la política óptima para maximizar recompensas.</li>
+              <li><span class="bolded">Deep Q-Networks (DQN):</span> Utiliza redes neuronales profundas para mejorar el Q-Learning.</li>
+              <li><span class="bolded">Política Proximal de Optimización (PPO):</span> Un algoritmo popular para tareas de control continuo.</li>
+              <li><span class="bolded">Actor-Critic:</span> Combina enfoques basados en política y valor.</li>
+            </ul>
+            <img src="/static/images/refuerzo.png" alt="Imagen aprendizaje por refuerzo" class="simple-image">
+
+            <h4>5. Clasificación según el Tipo de Modelo</h4>
+            <p>
+              Los algoritmos también se pueden clasificar según el tipo de modelo que emplean:
+            </p>
+            <ul>
+              <li>
+                <span class="bolded">Modelos Lineales:</span> Regresión Lineal, SVM.
+              </li>
+              <li>
+                <span class="bolded">Modelos No Lineales:</span> Árboles de Decisión, Redes Neuronales.
+              </li>
+              <li>
+                <span class="bolded">Modelos Probabilísticos:</span> Naive Bayes, GMM.
+              </li>
+              <li>
+                <span class="bolded">Modelos Basados en Ensambles:</span> Bosques Aleatorios, Gradient Boosting.
+              </li>
+            </ul>
+          
+
+          
+
+<div class="logo-container">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="footer-logo">
+</div>
+{% endblock %}
